@@ -7,6 +7,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+var checkingname;
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -15,39 +17,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
- var checkingname;
 
+favourite obj = favourite();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    getVaildationData();
 
-    // Future.delayed(Duration(seconds: 4)).then((value) => 
-    
-    // Navigator.push(context, MaterialPageRoute(builder: (context)=>Onboarding1())));
 
-   getVaildationData().whenComplete(()async{ 
-     Future.delayed(Duration(milliseconds: 2500)).then((value) => 
-     
-    
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> checkingname==null? Onboarding1()
-    :Card()
-    
-    )));
-
-   });
 
   }
 
-
-  Future getVaildationData()async{
-    final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
-    var obtainedName= sharedPreferences.getString('name');
-    checkingname=obtainedName;
-
+  Future getVaildationData() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    var obtainedName = sharedPreferences.getString('name');
+    checkingname = obtainedName;
   }
+
   @override
   Widget build(BuildContext context) {
+
+obj.whenComplete(context);
+
+
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(color: Color.fromARGB(255, 101, 23, 127)),
@@ -76,16 +70,34 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontWeight: FontWeight.w500,
                 color: Color.fromARGB(255, 199, 119, 223)),
           ),
-             SizedBox(height: 10),
+          SizedBox(height: 10),
           SpinKitThreeBounce(
-  color: Colors.white,
-  size: 30.0,
-  ),
-  
-  
-
+            color: Colors.white,
+            size: 30.0,
+          ),
         ],
       ),
     ));
   }
+}
+
+
+
+
+
+
+
+class favourite  {
+  whenComplete(context) async {
+  Future.delayed(Duration(milliseconds: 2500)).then((value) =>
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  checkingname == null ? Onboarding1() : Home())));
+
+
+                  update();
+}
+
 }
