@@ -18,7 +18,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-favourite obj = favourite();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -39,7 +39,7 @@ favourite obj = favourite();
   @override
   Widget build(BuildContext context) {
 
-obj.whenComplete(context);
+whenComplete(context);
 
 
     return Scaffold(
@@ -73,7 +73,7 @@ obj.whenComplete(context);
           SizedBox(height: 10),
           SpinKitThreeBounce(
             color: Colors.white,
-            size: 30.0,
+            size: 40.0,
           ),
         ],
       ),
@@ -87,7 +87,7 @@ obj.whenComplete(context);
 
 
 
-class favourite  {
+
   whenComplete(context) async {
   Future.delayed(Duration(milliseconds: 2500)).then((value) =>
       Navigator.pushReplacement(
@@ -97,7 +97,7 @@ class favourite  {
                   checkingname == null ? Onboarding1() : Home())));
 
 
-                  update();
-}
+                
+
 
 }
