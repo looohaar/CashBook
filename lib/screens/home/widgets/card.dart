@@ -51,6 +51,12 @@ class _CardState extends State<Card> {
          
     
         ),
+        child: Stack(
+          
+          children: [
+            
+          ],
+        ),
         
         
     
