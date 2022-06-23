@@ -118,7 +118,7 @@ class _CategoriesState extends State<Categories>
                                 child: Padding(
                                   padding: const EdgeInsets.all(20),
                                   child: Container(
-                                    color: Colors.white,
+                                    color: Colors.transparent,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -141,8 +141,15 @@ class _CategoriesState extends State<Categories>
                                                 padding: EdgeInsets.zero,
                                                 onPressed: () {},
                                                 icon: Icon(
-                                                  Icons.edit_outlined,
+                                                  Icons.edit,
                                                   color: buttonColor,
+                                                )),
+                                                IconButton(
+                                                padding: EdgeInsets.zero,
+                                                onPressed: () {},
+                                                icon: Icon(
+                                                  Icons.delete,
+                                                  color: Colors.redAccent,
                                                 )),
                                           ],
                                         ),
