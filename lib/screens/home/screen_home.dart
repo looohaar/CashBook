@@ -1,8 +1,11 @@
-import 'package:cash_book/screens/home/screen_addtransactions.dart';
-import 'package:cash_book/screens/home/screen_categories.dart';
-import 'package:cash_book/screens/home/screen_settings.dart';
-import 'package:cash_book/screens/home/screen_statistics.dart';
-import 'package:cash_book/screens/home/screen_transactions.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_addtransactions.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_settings.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_statistics.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_transactions.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_settings.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_statistics.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_transactions.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +26,7 @@ class _HomeState extends State<Home> {
     Transactions(),
     AddTransactions(),
     Statistics(),
-    AddCategory(),
+    Categories(),
     Settings(),
   ];
   @override
@@ -50,7 +53,10 @@ class _HomeState extends State<Home> {
     //   // shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(10)),
 
     //   ): null,
+   
+   
     );
+
   }
 
   Container customNavigationBar (BuildContext context){
@@ -114,6 +120,7 @@ class _HomeState extends State<Home> {
       ]
       
     ),
+    
   );
 }
 

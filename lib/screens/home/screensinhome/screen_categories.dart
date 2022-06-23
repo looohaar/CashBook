@@ -1,5 +1,6 @@
 import 'package:cash_book/main.dart';
 import 'package:cash_book/models/model_class.dart';
+import 'package:cash_book/screens/home/widgets/addCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -9,14 +10,14 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 int indexController = 0;
 
-class AddCategory extends StatefulWidget {
-  const AddCategory({Key? key}) : super(key: key);
+class Categories extends StatefulWidget {
+  const Categories({Key? key}) : super(key: key);
 
   @override
-  State<AddCategory> createState() => _AddCategoryState();
+  State<Categories> createState() => _CategoriesState();
 }
 
-class _AddCategoryState extends State<AddCategory>
+class _CategoriesState extends State<Categories>
     with TickerProviderStateMixin {
   Color? tabColor = incomeColor;
   TabController? tabController;
@@ -113,9 +114,9 @@ class _AddCategoryState extends State<AddCategory>
                         : ListView.separated(
                             itemBuilder: (context, index) {
                               return SizedBox(
-                                height: 12,
+                                height: 75,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(30),
+                                  padding: const EdgeInsets.all(20),
                                   child: Container(
                                     color: Colors.white,
                                     child: Row(
@@ -129,7 +130,7 @@ class _AddCategoryState extends State<AddCategory>
                                                 : expenseList[index]
                                                     .categoryName,
                                             style: GoogleFonts.signika(
-                                              fontSize: 8,
+                                              fontSize: 30,
                                             ),
                                             maxLines: 1,
                                           ),
@@ -168,7 +169,11 @@ class _AddCategoryState extends State<AddCategory>
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: ()=>AddCategory(),
+      floatingActionButton: FloatingActionButton(
+      onPressed: (){
+        // Navigator.push(context, MaterialPageRoute(builder: (context)=>Categories()));
+        showDialog(context: context, builder: (context)=>AddCategory());
+      },
       child: Icon(Icons.add,),
       backgroundColor: buttonColor,
       elevation: 0,

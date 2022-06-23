@@ -1,6 +1,6 @@
 import 'package:cash_book/main.dart';
 import 'package:cash_book/models/model_class.dart';
-import 'package:cash_book/screens/home/screen_categories.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,18 +8,17 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class AddCategory extends StatelessWidget {
  final addCategoryController= TextEditingController();
-   AddCategory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       content: SizedBox(
         height: 200,
-        width: 300,
+        width: double.infinity,
         child: Column(
           mainAxisAlignment:MainAxisAlignment.spaceEvenly,
           children: [
-            Text('Add Category',style: GoogleFonts.signika(fontSize: 10),),
+            Text('Add Category',style: GoogleFonts.signika(fontSize: 30,color: headingColor,fontWeight: FontWeight.w600),),
             TextField(
               controller: addCategoryController,
               cursorColor: buttonColor,
@@ -31,7 +30,8 @@ class AddCategory extends StatelessWidget {
 
             ),
             ElevatedButton(onPressed: (){
-                if (!checkDuplicate(addCategoryController.text)) {
+                 if (RegExp(r'^.*[a-zA-Z0-9]+.*$').hasMatch(addCategoryController.text)){
+                  if (!checkDuplicate(addCategoryController.text)) {
                    categoryVariable.add(Category(
                     addCategoryController.text,
                     
@@ -39,7 +39,8 @@ class AddCategory extends StatelessWidget {
                      ?true
                      :false
                     ));
-                }else{
+                }
+                else{
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     elevation: 10,
                     // behavior: SnackBarBehaviour.fixed,
@@ -53,15 +54,18 @@ class AddCategory extends StatelessWidget {
                     )
                     );
                 }
+
+                 }
+               
                 Navigator.pop(context);
 
             },
-             child: Text('Save',style: GoogleFonts.signika(color: Colors.white,fontSize: 20),),
+             child: Text('Save',style: GoogleFonts.signika(color: Colors.white,fontSize: 25,fontWeight: FontWeight.w700),),
              
              style: ElevatedButton.styleFrom(
              primary: buttonColor,
              shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+             borderRadius: BorderRadius.circular(20),
               
              ),
              minimumSize: Size(150, 50)
