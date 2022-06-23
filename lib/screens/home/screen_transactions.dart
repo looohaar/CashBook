@@ -32,7 +32,7 @@ class _TransactionsState extends State<Transactions> {
                         colors: [
                           // Colors.white,
                           buttonColor,
-                          Color.fromARGB(255, 20, 2, 46)
+                          Color.fromARGB(255, 20, 2, 46),
                         ],
                         end: Alignment.bottomCenter,
                         begin: Alignment.topCenter,

@@ -1,8 +1,8 @@
+import 'package:cash_book/screens/home/screen_addtransactions.dart';
 import 'package:cash_book/screens/home/screen_categories.dart';
 import 'package:cash_book/screens/home/screen_settings.dart';
 import 'package:cash_book/screens/home/screen_statistics.dart';
 import 'package:cash_book/screens/home/screen_transactions.dart';
-import 'package:cash_book/screens/home/widgets/card.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +21,9 @@ class _HomeState extends State<Home> {
   int pageIndex = 0;
   final pages = [
     Transactions(),
-    AddCategory(),
+    AddTransactions(),
     Statistics(),
+    AddCategory(),
     Settings(),
   ];
   @override
@@ -41,14 +42,14 @@ class _HomeState extends State<Home> {
      
 
       bottomNavigationBar: customNavigationBar(context),
-     floatingActionButton: pageIndex==0 || pageIndex==1? FloatingActionButton(
-        onPressed: (){},
-      child: Icon(Icons.add,),
-      backgroundColor: buttonColor,
-      elevation: 0,
-      // shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(10)),
+    //  floatingActionButton: pageIndex==0 || pageIndex==1? FloatingActionButton(
+    //     onPressed: (){},
+    //   child: Icon(Icons.add,),
+    //   backgroundColor: buttonColor,
+    //   elevation: 0,
+    //   // shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(10)),
 
-      ): null,
+    //   ): null,
     );
   }
 
@@ -88,15 +89,29 @@ class _HomeState extends State<Home> {
             });
           }, icon: pageIndex==2? Icon(Icons.analytics,color: Colors.white,size: 35,)
                                :  Icon(Icons.analytics_outlined,color: Colors.white,size: 35,)                         
+           ,tooltip: 'Analitics',
+          //  splashRadius: 5,
+          //  splashColor: Colors.grey,
+          // disabledColor: Colors.black,
+          
+          
            ),
            IconButton(onPressed: (){
             setState(() {
               pageIndex=3;
             });
-          }, icon: pageIndex==3? Icon(Icons.settings,color: Colors.white,size: 35,)
+          }, icon: pageIndex==3? Icon(Icons.category,color: Colors.white,size: 35,)
+                               :  Icon(Icons.category_outlined,color: Colors.white,size: 35,)                         
+           ),
+           IconButton(onPressed: (){
+            setState(() {
+              pageIndex=4;
+            });
+          }, icon: pageIndex==4? Icon(Icons.settings,color: Colors.white,size: 35,)
                                :  Icon(Icons.settings_outlined,color: Colors.white,size: 35,)                         
            ),
-      ],
+
+      ]
       
     ),
   );
