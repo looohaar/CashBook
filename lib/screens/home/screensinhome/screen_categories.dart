@@ -37,7 +37,7 @@ class _CategoriesState extends State<Categories>
         title: Text(
           'Add Items',
           style: GoogleFonts.signika(
-            fontSize: 25,
+            fontSize: 30,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -88,6 +88,7 @@ class _CategoriesState extends State<Categories>
                             ),
                           ),
                         ),
+                      
                       ]),
                 ],
               );
@@ -130,7 +131,7 @@ class _CategoriesState extends State<Categories>
                                                 : expenseList[index]
                                                     .categoryName,
                                             style: GoogleFonts.signika(
-                                              fontSize: 30,
+                                              fontSize: 27,
                                             ),
                                             maxLines: 1,
                                           ),

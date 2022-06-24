@@ -7,14 +7,14 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Transactions extends StatefulWidget {
-  const Transactions({Key? key}) : super(key: key);
+class TransactionHistory extends StatefulWidget {
+  const TransactionHistory({Key? key}) : super(key: key);
 
   @override
-  State<Transactions> createState() => _TransactionsState();
+  State<TransactionHistory> createState() => _TransactionHistoryState();
 }
 
-class _TransactionsState extends State<Transactions> {
+class _TransactionHistoryState extends State<TransactionHistory> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -118,7 +118,7 @@ class _TransactionsState extends State<Transactions> {
                 ),
               hdivider1,
               Container(
-                child: Text('All Transactions',style: GoogleFonts.signika(
+                child: Text('All TransactionHistory',style: GoogleFonts.signika(
                   fontSize: 25,
                   color: headingColor,
                   fontWeight: FontWeight.w500

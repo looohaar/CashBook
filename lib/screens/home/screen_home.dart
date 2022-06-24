@@ -23,7 +23,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int pageIndex = 0;
   final pages = [
-    Transactions(),
+    TransactionHistory(),
     AddTransactions(),
     Statistics(),
     Categories(),
