@@ -59,39 +59,36 @@ class _CategoriesState extends State<Categories>
                   // tabColor= Color.fromARGB(255, 20, 2, 46);
                 });
               });
-              return Column(
-                children: [
-                  TabBar(
-                      padding: EdgeInsets.all(30),
-                      indicator: BoxDecoration(
-                        color: tabColor,
-                        borderRadius: BorderRadius.circular(20),
+              // nthelum issues vannal TabBar Column il wrap chydo
+              return TabBar(
+                  padding: EdgeInsets.all(30),
+                  indicator: BoxDecoration(
+                    color: tabColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  labelColor: Colors.black87,
+                  unselectedLabelColor: Colors.black45,
+                  tabs: [
+                    Tab(
+                      child: Text(
+                        'Income',
+                        style: GoogleFonts.signika(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      labelColor: Colors.black87,
-                      unselectedLabelColor: Colors.black45,
-                      tabs: [
-                        Tab(
-                          child: Text(
-                            'Income',
-                            style: GoogleFonts.signika(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                    ),
+                    Tab(
+                      child: Text(
+                        'Expense',
+                        style: GoogleFonts.signika(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
                         ),
-                        Tab(
-                          child: Text(
-                            'Expense',
-                            style: GoogleFonts.signika(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      
-                      ]),
-                ],
-              );
+                      ),
+                    ),
+                  
+                  ]);
             }),
             ValueListenableBuilder(
                 valueListenable: categoryVariable.listenable(),
