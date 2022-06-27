@@ -35,7 +35,7 @@ class _CategoriesState extends State<Categories>
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Add Items',
+          'Add Item',
           style: GoogleFonts.signika(
             fontSize: 30,
             fontWeight: FontWeight.w700,

@@ -1,10 +1,11 @@
-import 'dart:ffi';
-import 'dart:html';
-
+import 'package:cash_book/main.dart';
+import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
+import 'package:cash_book/screens/home/screensinhome/screen_transactions.dart';
 import 'package:cash_book/screens/home/widgets/showCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/dateformats.dart';
+import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -42,7 +43,7 @@ class _AddTransactionsState extends State<AddTransactions> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Add Transactions',
+          'Add Transaction',
           style: GoogleFonts.signika(
             fontSize: 30,
             fontWeight: FontWeight.w700,
@@ -65,7 +66,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                   } else {
                     tabColor = expenseColor;
                   }
-                  // categoryController.text= '';
+                  categoryController.text = '';
                 });
               });
               //  if (tabController!.indexIsChanging) {
@@ -117,12 +118,9 @@ class _AddTransactionsState extends State<AddTransactions> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
-                            width: 150,
-                            child: Text(
-                              'Date',
-                              style: GoogleFonts.signika(fontSize: 25),
-                            ),
+                          Text(
+                            'Date',
+                            style: GoogleFonts.signika(fontSize: 30),
                           ),
                           SizedBox(
                             width: 150,
@@ -183,60 +181,148 @@ class _AddTransactionsState extends State<AddTransactions> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                               SizedBox(
-                            width: 150,
-                            child: Text(
-                              'Category',
-                              style: GoogleFonts.signika(fontSize: 25),
-                            ),
+                          Text(
+                            'Category',
+                            style: GoogleFonts.signika(fontSize: 30),
                           ),
                           SizedBox(
                             width: 150,
                             child: MediaQuery(
-                              data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-
-                             child: TextField(
-                              readOnly: true,
-                              enableInteractiveSelection: false,
-                              onTap: ()async{
-                                var result= await showDialog(
-                                  context: context,
-                                  builder: (context)=> ShowCategory()
-                                );
-                                if (result!=null) {
-                                  categorySelect=result;
-                                  categoryController.text=result;
-                                  setState(() {
-                                    
-                                  });
-
-                                  
-                                }
-                              },
-                              controller: categoryController,
-                              style: GoogleFonts.signika(
-                                fontSize: 25,
-                                color: Colors.black,
-
-                              ),
-                              decoration: InputDecoration(
-                                isDense: true,
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: buttonColor)
-                                ),
-                                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: buttonColor)),
-                              ),
-                             )),
-                           
+                                data: MediaQuery.of(context)
+                                    .copyWith(textScaleFactor: 1),
+                                child: TextField(
+                                  readOnly: true,
+                                  enableInteractiveSelection: false,
+                                  onTap: () async {
+                                    var result = await showDialog(
+                                        context: context,
+                                        builder: (context) => ShowCategory());
+                                    if (result != null) {
+                                      categorySelect = result;
+                                      categoryController.text = result;
+                                      setState(() {});
+                                    }
+                                  },
+                                  controller: categoryController,
+                                  style: GoogleFonts.signika(
+                                    fontSize: 25,
+                                    color: Colors.black,
+                                  ),
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(5),
+                                    isDense: true,
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: buttonColor)),
+                                    focusedBorder: UnderlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: buttonColor)),
+                                  ),
+                                )),
                           )
                         ],
-
                       ),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Amount',style: GoogleFonts.signika(fontSize: 25),),
+                          Text(
+                            'Amount',
+                            style: GoogleFonts.signika(fontSize: 30),
+                          ),
+                          SizedBox(
+                            width: 150,
+                            child: TextField(
+                              style: GoogleFonts.signika(fontSize: 25),
+                              controller: amountController,
+                              cursorColor: buttonColor,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                isDense: true,
+                                contentPadding: EdgeInsets.all(5),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                  color: buttonColor,
+                                )),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: buttonColor),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Notes',
+                              style: GoogleFonts.signika(fontSize: 30)),
+                          SizedBox(
+                            width: 150,
+                            child: TextField(
+                              style: GoogleFonts.signika(fontSize: 25),
+
+                              // cursorColor: buttonColor,
+                              controller: notesContorller,
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(5),
+                                isDense: true,
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: buttonColor)),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: buttonColor)),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      hdivider2,
+                      hdivider2,
+                      hdivider2,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              if (categorySelect==""|| amountController.text.isEmpty) {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Enter Transaction Details',style: GoogleFonts.signika(fontSize: 20,color: Colors.white),
+                                textAlign: TextAlign.center,),
+                                 
+                                backgroundColor: expenseColor,
+                                ) );
+                                
+                              }else{
+                                transactionsVariable.put(
+                                  1231246060-(int.parse((dateformatKey.format(initialDate)+
+                                  dateformatter.format(DateTime.now())
+                                  ))),
+                                  Transactions(
+                                    double.parse(amountController.text),
+                                     tabController!.index==0?true:false,
+                                      initialDate,
+                                       categorySelect!,
+                                        notesContorller.text)
+                                );
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TransactionHistory()));
+                                // Navigator.pop(context);
+                              } 
+
+                            },
+                            child: Text(
+                              'Save',
+                              style: GoogleFonts.signika(
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: buttonColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              minimumSize: Size(150, 50),
+                            ),
+                          ),
                         ],
                       ),
                     ],

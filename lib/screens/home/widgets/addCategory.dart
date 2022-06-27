@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class AddCategory extends StatelessWidget {
- final addCategoryController= TextEditingController();
+  final addCategoryController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,80 +16,77 @@ class AddCategory extends StatelessWidget {
         height: 200,
         width: double.infinity,
         child: Column(
-          mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text('Add Category',style: GoogleFonts.signika(fontSize: 30,color: headingColor,fontWeight: FontWeight.w600),),
+            Text(
+              'Add Category',
+              style: GoogleFonts.signika(
+                  fontSize: 30,
+                  color: headingColor,
+                  fontWeight: FontWeight.w600),
+            ),
             TextField(
               controller: addCategoryController,
               cursorColor: buttonColor,
               decoration: InputDecoration(
                 focusedBorder: UnderlineInputBorder(
-                 borderSide: BorderSide(color: buttonColor),
+                  borderSide: BorderSide(color: buttonColor),
                 ),
               ),
-
             ),
-            ElevatedButton(onPressed: (){
-                 if (RegExp(r'^.*[a-zA-Z0-9]+.*$').hasMatch(addCategoryController.text)){
+            ElevatedButton(
+              onPressed: () {
+                if (RegExp(r'^.*[a-zA-Z0-9]+.*$')
+                    .hasMatch(addCategoryController.text)) {
                   if (!checkDuplicate(addCategoryController.text)) {
-                   categoryVariable.add(Category(
-                    addCategoryController.text,
-                    
-                     indexController==0
-                     ?true
-                     :false
-                    ));
-                }
-                else{
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    elevation: 10,
-                    // behavior: SnackBarBehaviour.fixed,
-                    backgroundColor: buttonColor,
-                    content: Text('Category name exists',
-                    style: GoogleFonts.signika(
-                      fontSize: 15,
-                      color: Colors.white,
-                    ),
-                    )
-                    )
-                    );
+                    categoryVariable.add(Category(addCategoryController.text,
+                        indexController == 0 ? true : false));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        elevation: 10,
+                        // behavior: SnackBarBehaviour.fixed,
+                        backgroundColor: expenseColor,
+                        content: Text(
+                          'Category Name Exists',
+                          style: GoogleFonts.signika(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.center,
+                        )));
+                  }
                 }
 
-                 }
-               
                 Navigator.pop(context);
-
-            },
-             child: Text('Save',style: GoogleFonts.signika(color: Colors.white,fontSize: 25,fontWeight: FontWeight.w700),),
-             
-             style: ElevatedButton.styleFrom(
-             primary: buttonColor,
-             shape: RoundedRectangleBorder(
-             borderRadius: BorderRadius.circular(20),
-              
-             ),
-             minimumSize: Size(150, 50)
-             ),
-             )
+              },
+              child: Text(
+                'Save',
+                style: GoogleFonts.signika(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w700),
+              ),
+              style: ElevatedButton.styleFrom(
+                  primary: buttonColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  minimumSize: Size(150, 50)),
+            )
           ],
         ),
-        
       ),
     );
-    
   }
 }
 
-bool checkDuplicate(String text){
-  List<Category> list= categoryVariable.values.toList();
-  bool duplicate= false;
+bool checkDuplicate(String text) {
+  List<Category> list = categoryVariable.values.toList();
+  bool duplicate = false;
   for (int i = 0; i < list.length; i++) {
-    if (list[i].categoryName.trim()==text.trim()) {
-      duplicate=true;
-      
+    if (list[i].categoryName.trim() == text.trim()) {
+      duplicate = true;
     }
-    
   }
   return duplicate;
-
 }
