@@ -1,5 +1,6 @@
 import 'package:cash_book/main.dart';
 import 'package:cash_book/models/model_class.dart';
+import 'package:cash_book/screens/home/screen_home.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_transactions.dart';
 import 'package:cash_book/screens/home/widgets/showCategory.dart';
@@ -69,9 +70,9 @@ class _AddTransactionsState extends State<AddTransactions> {
                   categoryController.text = '';
                 });
               });
-              //  if (tabController!.indexIsChanging) {
-              //       categorySelect = "";
-              //     }
+               if (tabController!.indexIsChanging) {
+                    categorySelect = "";
+                  }
 
               return Column(
                 children: [
@@ -300,10 +301,10 @@ class _AddTransactionsState extends State<AddTransactions> {
                                     double.parse(amountController.text),
                                      tabController!.index==0?true:false,
                                       initialDate,
-                                       categorySelect!,
+                                       categorySelect,
                                         notesContorller.text)
                                 );
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TransactionHistory()));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
                                 // Navigator.pop(context);
                               } 
 

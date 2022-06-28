@@ -1,11 +1,15 @@
 import 'dart:ui';
 
+import 'package:cash_book/main.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
+
+import '../../../models/model_class.dart';
 
 class TransactionHistory extends StatefulWidget {
   
@@ -119,12 +123,28 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                 ),
               hdivider1,
               Container(
-                child: Text('All TransactionHistory',style: GoogleFonts.signika(
+                child: Text('All Transactions',style: GoogleFonts.signika(
                   fontSize: 25,
                   color: headingColor,
                   fontWeight: FontWeight.w500
                 ),),
               ),
+              Expanded(
+                child: ValueListenableBuilder(
+                  valueListenable: transactionsVariable.listenable() ,
+                  builder: (BuildContext context, Box<Transactions> newBox, Widget? child) {
+                    List <Transactions> listoftransactions =transactionHistory(newBox);
+                    return ListView.builder(
+                      itemBuilder: (context,index){
+                        return ListTile(
+                          // leading: listoftransactions[index],
+                        );
+                      }
+                      );
+                  },
+                 
+                ),
+                ),
             ],
             
           ),
@@ -133,4 +153,14 @@ class _TransactionHistoryState extends State<TransactionHistory> {
       );
     
   }
+}
+
+List<Transactions> transactionHistory(Box<Transactions> box){
+  List<Transactions> list= transactionsVariable.values.toList();
+  List<Transactions> transactionlist=[];
+  for (int i = 0; i < list.length; i++) {
+    transactionlist.add(list[i]);
+    
+  }
+  return transactionlist;
 }
