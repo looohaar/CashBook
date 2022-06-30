@@ -148,7 +148,8 @@ class _CategoriesState extends State<Categories>
                                                 icon: Icon(
                                                   Icons.delete,
                                                   color: Colors.redAccent,
-                                                )),
+                                                )
+                                              ),
                                           ],
                                         ),
                                       ],
