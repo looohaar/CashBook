@@ -276,18 +276,21 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                           ],
                                         ),
                                         SizedBox(
-                                          height: 50,
+                                          height: 30,
                                           width: 100,
    
-                                         child: Text(
-                                        ' ₹ ${transactionTileList[index].amount}',
-                                                                         style: GoogleFonts.signika(
-                                               fontSize: 25,
-                                             fontWeight: FontWeight.bold,
-                                             color: Colors.black54),
-                                            //  overflow: TextOverflow.ellipsis,
-                                            maxLines: 1,
-                                                                       ),
+                                         child: FittedBox(
+                                          fit: BoxFit.contain,
+                                           child: Text(
+                                                 ' ₹ ${transactionTileList[index].amount}',
+                                                  style: GoogleFonts.signika(
+                                                 fontSize: 30,
+                                               fontWeight: FontWeight.bold,
+                                               color: Colors.black54),
+                                               overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
+                                                                         ),
+                                         ),
                                         ),
 
                                       ],
