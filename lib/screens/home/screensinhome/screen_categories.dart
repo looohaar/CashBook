@@ -121,7 +121,10 @@ class _CategoriesState extends State<Categories>
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
+                                        SizedBox(
+                                          width: 220,
+                                          height: 50,
+
                                           child: Text(
                                             tabController!.index == 0
                                                 ? incomeList[index].categoryName
