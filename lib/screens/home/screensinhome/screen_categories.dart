@@ -41,7 +41,9 @@ class _CategoriesState extends State<Categories>
             fontWeight: FontWeight.w700,
           ),
         ),
+        elevation: 0,
       ),
+      
       body: DefaultTabController(
         length: 2,
         child: Column(
