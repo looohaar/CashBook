@@ -1,4 +1,4 @@
-import 'package:cash_book/screens/home/widgets/addCategory.dart';
+import 'package:cash_book/screens/home/subscreens/addCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';

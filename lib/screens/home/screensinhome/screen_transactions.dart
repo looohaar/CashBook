@@ -14,6 +14,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:intl/intl.dart';
 
 import '../../../models/model_class.dart';
+import '../subscreens/editTransactions.dart';
 
 class TransactionHistory extends StatefulWidget {
   TransactionHistory();
@@ -120,7 +121,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -193,18 +194,26 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              AddTransactions()));
+                                              EditTransaction(
+                                               editTransactiionKey: transactionTileList[index],
+                                               
+
+
+                                              )));
                                 },
 
                                 child: Column(
                                   children: [
+                                      SizedBox(height: 12),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
+                                               crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               height: 50,
@@ -252,7 +261,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                             SizedBox(width: 20),
                                             Column(
                                               children: [
-                                                SizedBox(height: 12),
+                                                SizedBox(height: 13),
                                                 SizedBox(
                                                   height: 50,
                                                   width: 170,
@@ -275,22 +284,25 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(
-                                          height: 30,
-                                          width: 100,
+                                        Padding(
+                                          padding:  EdgeInsets.fromLTRB(0,0,10,0),
+                                          child: SizedBox(
+                                            height: 30,
+                                            width: 110,
    
-                                         child: FittedBox(
-                                          fit: BoxFit.contain,
-                                           child: Text(
-                                                 ' ₹ ${transactionTileList[index].amount}',
-                                                  style: GoogleFonts.signika(
-                                                 fontSize: 30,
-                                               fontWeight: FontWeight.bold,
-                                               color: Colors.black54),
-                                               overflow: TextOverflow.ellipsis,
-                                              maxLines: 1,
-                                                                         ),
-                                         ),
+                                           child: FittedBox(
+                                            fit: BoxFit.fitHeight,
+                                             child: Text(
+                                                   ' ₹ ${transactionTileList[index].amount}',
+                                                    style: GoogleFonts.signika(
+                                                   fontSize: 30,
+                                                 fontWeight: FontWeight.bold,
+                                                 color: Colors.black54),
+                                                 overflow: TextOverflow.ellipsis,
+                                                maxLines: 1,
+                                                                           ),
+                                           ),
+                                          ),
                                         ),
 
                                       ],
@@ -299,34 +311,20 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                   ],
                                 ),
 
-                                // *********************amount**************
-                                // trailing: Text(
-                                //   'Rs. ${transactionTileList[index].amount}',
-                                //   style: GoogleFonts.signika(
-                                //       fontSize: 25,
-                                //       fontWeight: FontWeight.bold,
-                                //       color: Colors.black54),
-                                //   overflow: TextOverflow.ellipsis,
-                                // ),
-
-                                // ************category**************
-                                // title: Text(
-                                //   transactionTileList[index].categories,
-                                //   style: GoogleFonts.signika(
-                                //       fontSize: 25,
-                                //       fontWeight: FontWeight.bold,
-                                //       color: transactionTileList[index]
-                                //               .transactionType
-                                //           ? tileIncomeColor
-                                //           : tileExpenseColor),
-                                // ),
+                              
 
                                
                               );
                             },
                             separatorBuilder:
                                 (BuildContext context, int index) {
-                              return const SizedBox.shrink();
+                              return  SizedBox(
+                                height: 1,
+                                child: Container(
+                                  color: headingColor,
+                                  child: Text(''),
+                                ),
+                              );
                             },
                             itemCount: transactionTileList.length,
                           );

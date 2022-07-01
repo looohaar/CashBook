@@ -3,7 +3,7 @@ import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/screen_home.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_transactions.dart';
-import 'package:cash_book/screens/home/widgets/showCategory.dart';
+import 'package:cash_book/screens/home/subscreens/showCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/dateformats.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';

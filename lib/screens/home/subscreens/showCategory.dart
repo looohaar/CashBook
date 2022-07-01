@@ -1,7 +1,7 @@
 import 'package:cash_book/main.dart';
 import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
-import 'package:cash_book/screens/home/widgets/addCategory.dart';
+import 'package:cash_book/screens/home/subscreens/addCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
