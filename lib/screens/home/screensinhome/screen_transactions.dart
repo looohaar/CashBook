@@ -280,6 +280,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                     maxLines: 1,
                                                   ),
                                                 ),
+                                                Visibility(
+                                                  visible: false,
+                                                  child: Text(
+                                                    transactionTileList[index].notes,
+                                                    
+                                                  ),
+                                                )
                                               ],
                                             ),
                                           ],
@@ -319,7 +326,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                             separatorBuilder:
                                 (BuildContext context, int index) {
                               return  SizedBox(
-                                height: 1,
+                                height: 3,
                                 child: Container(
                                   color: headingColor,
                                   child: Text(''),

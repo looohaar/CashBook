@@ -8,6 +8,7 @@ import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/dateformats.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -234,6 +235,13 @@ class _AddTransactionsState extends State<AddTransactions> {
                           SizedBox(
                             width: 150,
                             child: TextField(
+                               inputFormatters: [
+                        FilteringTextInputFormatter.deny(
+                          RegExp(r"[\s,-]"),
+                        ),
+                        FilteringTextInputFormatter.allow(
+                            RegExp(r"^(?:0|[1-9]\d+|)?(?:.?\d*)?$"))
+                      ],
                               style: GoogleFonts.signika(fontSize: 25),
                               controller: amountController,
                               cursorColor: buttonColor,
