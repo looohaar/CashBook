@@ -1,6 +1,8 @@
 import 'package:cash_book/main.dart';
 import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/subscreens/addCategory.dart';
+import 'package:cash_book/screens/home/subscreens/deleteCategory.dart';
+import 'package:cash_book/screens/home/subscreens/editCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -142,18 +144,41 @@ class _CategoriesState extends State<Categories>
                                           children: [
                                             IconButton(
                                                 padding: EdgeInsets.zero,
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  int key= tabController!.index==0?
+                                                  incomeList[index].key
+                                                  :expenseList[index].key;
+                                                  bool type= tabController!.index==0?
+                                                  incomeList[index].transactionType:
+                                                  expenseList[index].transactionType;
+                                                  showDialog(context: context, 
+                                                  builder: (context){
+                                                    return EditCategory(indexKey: key
+                                                    , transactionType: type);
+                                                  });
+                                                 
+
+                                                },
                                                 icon: Icon(
                                                   Icons.edit,
                                                   color: buttonColor,
                                                 )),
                                                 IconButton(
                                                 padding: EdgeInsets.zero,
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  int key= tabController!.index==0
+                                                  ? incomeList[index].key
+                                                  : expenseList[index].key;
+                                                  showDialog(context: context,
+                                                   builder: (context)=>DeleteCategory(  key,
+                                                   null));
+                                                  
+                                                },
                                                 icon: Icon(
                                                   Icons.delete,
                                                   color: Colors.redAccent,
                                                 )
+                                                
                                               ),
                                           ],
                                         ),

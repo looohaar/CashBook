@@ -176,7 +176,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                               child: Text('Yes',
                                                   style: GoogleFonts.signika(
                                                       fontSize: 20,
-                                                      color: Colors.black))),
+                                                     ))),
                                           TextButton(
                                               onPressed: () {
                                                 Navigator.pop(context);
@@ -184,7 +184,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                               child: Text('No',
                                                   style: GoogleFonts.signika(
                                                     fontSize: 20,
-                                                    color: Colors.black,
+                                                   
                                                   )))
                                         ],
                                       );

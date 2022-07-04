@@ -56,7 +56,7 @@ class _EditTransactionState extends State<EditTransaction> {
     initialDate = widget.editTransactiionKey.date;
     amountController.text = widget.editTransactiionKey.amount.toString();
     dateController.text =
-        dateformatFull.format(widget.editTransactiionKey.date);
+    dateformatFull.format(widget.editTransactiionKey.date);
     categoriesController.text = widget.editTransactiionKey.categories;
     transactionType = widget.editTransactiionKey.transactionType;
     super.initState();
@@ -178,11 +178,11 @@ class _EditTransactionState extends State<EditTransaction> {
                                     return ShowCategory();
                                   });
                               if (result != null) {
-                                selectCategory != result;
-                                categoriesController.text = result;
+                                // selectCategory != result;
+                                // categoriesController.text = result;
 
                                 setState(() {
-                                   selectCategory != result;
+                                   selectCategory = result;
                                 categoriesController.text = result;
                                 });
                               }

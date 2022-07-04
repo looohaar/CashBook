@@ -26,9 +26,12 @@ class AddCategory extends StatelessWidget {
                   fontWeight: FontWeight.w600),
             ),
             TextField(
+              style: GoogleFonts.signika(fontSize:25),
               controller: addCategoryController,
               cursorColor: buttonColor,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(5),
+                isDense: true,
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: buttonColor),
                 ),
