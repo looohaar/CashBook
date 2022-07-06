@@ -10,7 +10,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
-
+import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../models/model_class.dart';
 import '../../../utils/colors.dart';
 
@@ -126,6 +126,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                             }else if(popupItem=='Yearly'){
                                       monthlyYearly=DateTime(
                                         monthlyYearly.year-1,
+                                        // nextline conmment chyd check chyd nok
                                         monthlyYearly.month
                                       );
                                       firstFilterList= monthlyandyearlyLists(transactionsVariable)[0];
@@ -147,15 +148,56 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                           
 
                          ),
-                         IconButton(onPressed: (){},
+                         IconButton(onPressed: (){
+                          setState(() {
+                            if (popupItem=='Monthly') {
+                                monthlyYearly=DateTime(monthlyYearly.year,monthlyYearly.month+1);
+                                firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
+
+                              
+                            }else{
+                              monthlyYearly=DateTime(monthlyYearly.year+1,
+                              monthlyYearly.month);
+                              firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
+                            
+                            }
+                          });
+                         },
                           icon: Icon(Icons.keyboard_arrow_right,size: 35,color: headingColor,)
                           )
                       ],
 
                     ),
-                    PopupMenuButton(itemBuilder: (context)=>[
-                      PopupMenuItem(child: Text('Monthly',style: GoogleFonts.signika(fontSize: 20,color: Colors.black),)),
-                      PopupMenuItem(child: Text('Yearly',style: GoogleFonts.signika(fontSize: 20,color: Colors.black),)),
+                    
+                    PopupMenuButton(
+
+                      onSelected: (value){
+                       setState(() {
+                          if (value!=null) {
+                          if ((value=='Monthly')) {
+                            monthlyYearly=DateTime.now();
+                            firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
+                            popupItem=value.toString();
+                            setState(() {
+                              
+                            });
+                            
+                          }else if(value=='Yearly'){
+                            monthlyYearly=DateTime.now();
+                            firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
+                            popupItem=value.toString();
+                            setState(() {
+                              
+                            });
+                          }
+                          
+                        }
+                       });
+                      },
+                      initialValue: popupItem,
+                      itemBuilder: (context)=>[
+                      PopupMenuItem(child: Text('Monthly',style: GoogleFonts.signika(fontSize: 20,color: Colors.black),),value: 'Monthly',),
+                      PopupMenuItem(child: Text('Yearly',style: GoogleFonts.signika(fontSize: 20,color: Colors.black),),value: 'Yearly',),
                       
                     ],
                     child: Padding(padding: EdgeInsets.only(right: 10),
@@ -181,13 +223,56 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                           Icon(Icons.keyboard_arrow_down,size: 30,)
                         ],
                       ),
-                     
-                    ),),
+
+                   
+                    ),
+                    ),
                     )
 
                   ],
                 ),
               ),
+              // Expanded(child: 
+              // Padding(padding: EdgeInsets.all(10),
+              // child: (getChartExpense(firstFilterList).isEmpty&& tabController!.index==1)
+              // || (getChartIncome(firstFilterList).isEmpty && tabController!.index==1)
+              // ?Center(
+              //   child: Text('No Data',
+              //   style: GoogleFonts.signika(fontSize: 20,color: Colors.grey,fontWeight: FontWeight.w500),),
+              // )
+              // : SfCircularChart(
+              //   centerY: '160',
+              //   legend: Legend(
+              //     textStyle: GoogleFonts.signika(),
+              //     overflowMode: LegendItemOverflowMode.scroll,
+              //     offset: Offset(-140, 10),
+              //     isVisible: true,
+              //     isResponsive: true,
+              //     orientation: LegendItemOrientation.vertical,
+              //     height: '30%',
+              //     width: '100%',
+
+              //   ),
+              //   tooltipBehavior: TooltipBehavior(
+              //     enable: true,
+              //     color: buttonColor,
+              //     textStyle: GoogleFonts.signika(),
+
+              //   ),
+              //   palette: [incomeColor,expenseColor],
+              //   backgroundColor: Colors.white,
+              //   series: <CircularSeries>[
+                  // DoughnutSeries<ChartData, String>(
+                    
+                  //   xValueMapper: xValueMapper,
+
+                  //    yValueMapper: yValueMapper
+                  //    )
+              //   ],
+
+              // )
+              // )
+              // ,)
             ]
           )
         )
@@ -215,8 +300,78 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
     }
     return monthlyandyearlyLists;
    }
-   
 
+
+   List<ChartData> getChartIncome(List<Transactions> transactions){
+    final List<ChartData> chartIncomeData=[];
+    List<Category> catList= categoryVariable.values.toList();
+    for (int i = 0; i < catList.length; i++) {
+      double amount=0;
+      if (catList[i].transactionType==true) {
+        for (int j = 0; j < transactions.length; j++) {
+          if (catList[i].categoryName==transactions[j].categories) {
+            amount= amount+transactions[j].amount;
+          }
+        }
+        if (amount!=0) {
+          var percentage= ((amount.roundToDouble()/incomeSum(firstFilterList))*100).toStringAsFixed(2);
+          chartIncomeData.add(ChartData(catList[i].categoryName, amount.round(), '$percentage %'));
+        }
+      }
+    }
+    return chartIncomeData;
+   }
+   List<ChartData> getChartExpense(List<Transactions> transactions){
+    final List<ChartData> chartExpenseData=[];
+    List<Category> catList= categoryVariable.values.toList();
+    for (int i = 0; i < catList.length; i++) {
+      double amount=0;
+    if (catList[i].transactionType==false) {
+      for (int j = 0; j < transactions.length; j++) {
+        if (catList[i].categoryName==transactions[j].categories) {
+          amount= transactions[j].amount+ amount;
+        }       
+      }
+      if (amount!=0) {
+        var percentage= ((amount.roundToDouble()/expenseSum(firstFilterList))*100).toStringAsFixed(2);
+        chartExpenseData.add(ChartData(catList[i].categoryName, amount.round(), '$percentage %'));
+
+        
+      }
+      
+    }
+      
+    }
+    return chartExpenseData;
+    
+   }
+   }
+   class ChartData{
+    final String categoryName;
+    final int amount;
+    final String percentage;
+    ChartData(this.categoryName,this.amount, this.percentage);
    }
    
-   
+   double incomeSum(List<Transactions> list){
+    double totalIncome=0;
+    for (int i = 0; i < list.length; i++) {
+      if (list[i].transactionType==true) {
+        totalIncome= list[i].amount+ totalIncome;
+        
+      }
+      
+    }
+    return totalIncome;
+   }
+   double expenseSum(List<Transactions>list){
+    double totalExpense=0;
+    for (int i = 0; i < list.length; i++) {
+      if (list[i].transactionType==false) {
+        totalExpense= list[i].amount+ totalExpense;
+        
+      }
+      
+    }
+    return totalExpense;
+   }
