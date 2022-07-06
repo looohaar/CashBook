@@ -232,47 +232,66 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                   ],
                 ),
               ),
-              // Expanded(child: 
-              // Padding(padding: EdgeInsets.all(10),
-              // child: (getChartExpense(firstFilterList).isEmpty&& tabController!.index==1)
-              // || (getChartIncome(firstFilterList).isEmpty && tabController!.index==1)
-              // ?Center(
-              //   child: Text('No Data',
-              //   style: GoogleFonts.signika(fontSize: 20,color: Colors.grey,fontWeight: FontWeight.w500),),
-              // )
-              // : SfCircularChart(
-              //   centerY: '160',
-              //   legend: Legend(
-              //     textStyle: GoogleFonts.signika(),
-              //     overflowMode: LegendItemOverflowMode.scroll,
-              //     offset: Offset(-140, 10),
-              //     isVisible: true,
-              //     isResponsive: true,
-              //     orientation: LegendItemOrientation.vertical,
-              //     height: '30%',
-              //     width: '100%',
+              Expanded(child: 
+              Padding(padding: EdgeInsets.all(10),
+              child: ((getChartExpense(firstFilterList).isEmpty&& tabController!.index==1)
+              || (getChartIncome(firstFilterList).isEmpty && tabController!.index==0))
+              ?Center(
+                child: Text('No Data',
+                style: GoogleFonts.signika(fontSize: 30,color: Colors.grey,fontWeight: FontWeight.w500),),
+              )
+              : SfCircularChart(
+                centerY: '160',
+                legend: Legend(
+                  textStyle: GoogleFonts.signika(),
+                  overflowMode: LegendItemOverflowMode.scroll,
+                  // offset: Offset(-1000, -140),
+                  // offset: Offset(-1000, -50),
+                  offset: Offset(-140, 350),
+                  isVisible: true,
+                  isResponsive: true,
+                  orientation: LegendItemOrientation.vertical,
+                  height: '80%',
+                  width: '80%',
 
-              //   ),
-              //   tooltipBehavior: TooltipBehavior(
-              //     enable: true,
-              //     color: buttonColor,
-              //     textStyle: GoogleFonts.signika(),
+                ),
+                tooltipBehavior: TooltipBehavior(
+                  enable: true,
+                  color: buttonColor,
+                  textStyle: GoogleFonts.signika(),
 
-              //   ),
-              //   palette: [incomeColor,expenseColor],
-              //   backgroundColor: Colors.white,
-              //   series: <CircularSeries>[
-                  // DoughnutSeries<ChartData, String>(
-                    
-                  //   xValueMapper: xValueMapper,
+                ),
+                palette: colorPalette,
+                backgroundColor: Colors.white,
+                series: <CircularSeries>[
+                  DoughnutSeries<ChartData, String>(
+                    strokeColor: Colors.white,
+                    strokeWidth: 1,
+                    explodeGesture: ActivationMode.singleTap,
+                    radius: 120.toString(),
+                    dataSource: tabController!.index==0
+                    ?getChartIncome(firstFilterList)
+                    :getChartExpense(firstFilterList),
+                    xValueMapper: (ChartData data, _)=>data.categoryName,
+                    yValueMapper: (ChartData data,_)=>data.amount,
+                    dataLabelMapper: (ChartData data,_)=>data.percentage,
 
-                  //    yValueMapper: yValueMapper
-                  //    )
-              //   ],
+        dataLabelSettings: DataLabelSettings(
+          color: tabController?.index==0? incomeColor:expenseColor,
+          connectorLineSettings: const ConnectorLineSettings(
+            type: ConnectorType.curve,
+          ),
+          labelPosition: ChartDataLabelPosition.outside,
+          isVisible: true,
+          textStyle: GoogleFonts.signika(fontSize: 20),
 
-              // )
-              // )
-              // ,)
+        )
+                     )
+                ],
+
+              )
+              )
+              ,)
             ]
           )
         )
