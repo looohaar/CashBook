@@ -28,6 +28,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+           backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
@@ -52,8 +53,26 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                         border: Border.all(color: Colors.black54, width: 3),
                         gradient: LinearGradient(
                           colors: [
-                             Color.fromARGB(255, 7, 12, 103),
-                            Color.fromARGB(255, 176, 30, 233)
+                           
+                            // Color.fromARGB(252, 202, 10, 116),
+                            // Color.fromARGB(255, 26, 26, 65),
+                            // Color.fromARGB(255, 24, 1, 65),   
+                            // Color.fromARGB(255, 24, 1, 65), 
+                            // Colors.pink
+                            Colors.amber,
+                            Color.fromARGB(255, 249, 186, 26),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Color.fromARGB(255, 63, 8, 94),
+                            Colors.amber,
+                            Colors.amber,
+
+                          
+                            
                           ],
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,

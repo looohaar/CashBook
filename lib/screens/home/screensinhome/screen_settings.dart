@@ -24,6 +24,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text('Settings',
@@ -191,7 +192,7 @@ elevation: 0,
               child: GestureDetector(
                 onTap: ()=>EmailAndUrl.openLink(url: 'www.linkedin.com/in/rahul-rajeev-500b1b200'),
                 child: ListTile(
-                  leading: Icon(Icons.info,color: headingColor,size: 35,),
+                  leading: Icon(Icons.info,color: headingColor,size: 33,),
                   title: Text('About Me',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
                   
                 ),

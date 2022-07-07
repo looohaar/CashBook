@@ -1,10 +1,12 @@
 import 'dart:ffi';
 
 
+
 import 'package:cash_book/main.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
 import 'package:cash_book/screens/home/subscreens/addCategory.dart';
 import 'package:cash_book/utils/dateformats.dart';
+import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -42,6 +44,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         appBar: AppBar(
       
           centerTitle: true,
@@ -226,6 +229,16 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                   ],
                 ),
               ),
+              hdivider2,
+              SizedBox(
+                height: 25,
+                child: Text(
+                  tabController!.index==0
+                  ?'Total Income : ${incomeSum(firstFilterList)}'
+                  : 'Total Expense : ${expenseSum(firstFilterList)}',
+                  style: GoogleFonts.signika(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
+              ),
               Expanded(child: 
               Padding(padding: EdgeInsets.all(10),
               child: ((getChartExpense(firstFilterList).isEmpty&& tabController!.index==1)
@@ -235,6 +248,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                 style: GoogleFonts.signika(fontSize: 30,color: Colors.grey,fontWeight: FontWeight.w500),),
               )
               : SfCircularChart(
+                
                 centerY: '160',
                 legend: Legend(
                   textStyle: GoogleFonts.signika(),
@@ -245,7 +259,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                   isVisible: true,
                   isResponsive: true,
                   orientation: LegendItemOrientation.vertical,
-                  height: '80%',
+                  height: '100%',
                   width: '80%',
 
                 ),

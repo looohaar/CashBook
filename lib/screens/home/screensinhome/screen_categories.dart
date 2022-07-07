@@ -34,10 +34,11 @@ class _CategoriesState extends State<Categories>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Add Item',
+          'Add Categories',
           style: GoogleFonts.signika(
             fontSize: 30,
             fontWeight: FontWeight.w700,
