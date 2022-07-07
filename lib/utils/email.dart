@@ -2,7 +2,7 @@
 
 import 'package:url_launcher/url_launcher.dart';
 
-class Email{
+class EmailAndUrl{
   static Future emailLauncher(String url) async{
     if (await canLaunch(url)) {
       await launch(url);

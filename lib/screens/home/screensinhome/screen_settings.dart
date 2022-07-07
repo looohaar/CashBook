@@ -1,10 +1,17 @@
+
+
 import 'package:cash_book/main.dart';
 import 'package:cash_book/screens/home/subscreens/addCategory.dart';
 import 'package:cash_book/utils/colors.dart';
+import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
+
+import '../../../utils/email.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -38,19 +45,26 @@ elevation: 0,
           
           padding: const EdgeInsets.all(10),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            // mainAxisSize: MainAxisSize.max,
             children: [
-              ListTile(
-                leading: Icon(
-                  Icons.person,
-                  color: headingColor,
-                  size: 35,
+              SizedBox(
+                height: 30,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.person,
+                    color: headingColor,
+                    size: 35,
+                  ),
+                  title: Text('Name',
+                  style: GoogleFonts.signika(
+                    fontSize: 25,
+              
+                  ),),
                 ),
-                title: Text('Name',
-                style: GoogleFonts.signika(
-                  fontSize: 25,
-
-                ),),
               ),
+              hdivider2,
+               hdivider2,
               SizedBox(
                 height: 30,
                 
@@ -107,13 +121,94 @@ elevation: 0,
                   ),
               
               ),
+              hdivider2,
+              hdivider2,
               SizedBox(
                 height: 30,
                 child: GestureDetector(
+                  onTap: ()=> EmailAndUrl.openEmail(
+                    toEmail: 'looohaar@gmail.com',
+                    subject: 'Feedback about CashBook',
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.email,color: headingColor,size: 30,),
+
+                    title: Text('Feedback',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
+                  ),
+                ),
+              ),
+              hdivider2,
+              hdivider2,
+              SizedBox(
+                height: 30,
+                child: GestureDetector(
+                  onTap: ()=>Share.share('Hi,please be kind to check out this moneymanager application. I assure you tht this appliction will help you in your Financial journey ..#url kodukanam upload chyd kazhinjit'),
+                  child: ListTile(
+                    leading: Icon(Icons.share_sharp,color: headingColor,size: 30,),
+                    title: Text('Share App',
+                    style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
+                  ),
+                ),
+              ),
+              hdivider2,
+              hdivider2,
+            SizedBox(
+              height: 30,
+              child: GestureDetector(
+                onTap: (){
+
+                },
+                child: ListTile(
+                  leading: Icon(Icons.star,color: headingColor,size: 33,),
+                  title: Text('Rate App',style: GoogleFonts.signika(fontSize:25,color: Colors.black),
+
+                ),
+              ),
+            ),
+           ),
+           hdivider2,
+           hdivider2,
+           SizedBox(
+            height: 30,
+            child: GestureDetector(
+              onTap: ()=> EmailAndUrl.openLink(url: 'app upload chydit url kodknam'),
+              child: ListTile(
+                leading: Icon(Icons.privacy_tip_outlined,color: headingColor,size: 30,),
+                title: Text('Privacy Policy',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),
+              ),
+            ),
+          
+           ),
+       
+          
+
+
+           ) ,
+            hdivider2,
+                hdivider2,
+                SizedBox(
+                  height: 30,
+              child: GestureDetector(
+                onTap: ()=>EmailAndUrl.openLink(url: 'www.linkedin.com/in/rahul-rajeev-500b1b200'),
+                child: ListTile(
+                  leading: Icon(Icons.info,color: headingColor,size: 35,),
+                  title: Text('About Me',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
                   
                 ),
               ),
-            ],
+              
+                ),
+               SizedBox(height: 225),
+                SizedBox(
+                  height: 30,
+                  child: Center(
+                    child: Text('Version 1.0',
+                    style: GoogleFonts.signika(fontSize: 20,color: Colors.grey,),),
+
+                  ),
+                )
+
+           ],
 
           ),
         ),
