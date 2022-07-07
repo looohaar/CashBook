@@ -1,8 +1,10 @@
+import 'package:cash_book/main.dart';
 import 'package:cash_book/screens/home/subscreens/addCategory.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -15,10 +17,107 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(
-       child: Text('Settings')
-      ) ,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Settings',
+        style: GoogleFonts.signika(
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+
+
+        ),
+        ),
+elevation: 0,
+      ),
       
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: double.infinity,
+        child: Padding(
+          
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.person,
+                  color: headingColor,
+                  size: 35,
+                ),
+                title: Text('Name',
+                style: GoogleFonts.signika(
+                  fontSize: 25,
+
+                ),),
+              ),
+              SizedBox(
+                height: 30,
+                
+                  child: GestureDetector(
+                    onTap: ()=> showDialog(
+                      context: context, 
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text('Reset Data',style: GoogleFonts.signika(fontSize: 25,color: buttonColor,fontWeight: FontWeight.w500),
+                          textAlign: TextAlign.center,),
+                          content: Text('Do You Want To Reset Data ?',
+                           style: GoogleFonts.signika(
+                            fontSize:20,
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                          ),
+                          actions: [
+                            TextButton(onPressed: (){
+                              categoryVariable.clear();
+                              transactionsVariable.clear();
+                              Navigator.pop(context);
+
+                            },
+                             child: Text('Yes',
+                             style: GoogleFonts.signika(
+                              color: buttonColor,
+                              fontSize: 18
+
+                              
+                             ),)),
+                             TextButton(onPressed: (){
+                              Navigator.pop(context);
+                             },
+                              child: Text('No',
+                              style: GoogleFonts.signika(
+                                color: buttonColor,
+                                fontSize: 18
+                              ),))
+                          ],
+
+
+                
+                        );
+                      }, 
+                   ),
+                   child: ListTile(
+                    leading: Icon(Icons.refresh_sharp,color: headingColor,size: 35,),
+                    title: Text('Reset Data',
+                    style:GoogleFonts.signika(
+                      fontSize: 25
+                    ),),
+                   )
+                  ),
+              
+              ),
+              SizedBox(
+                height: 30,
+                child: GestureDetector(
+                  
+                ),
+              ),
+            ],
+
+          ),
+        ),
+      ),
     );
     
   }

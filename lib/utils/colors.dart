@@ -34,11 +34,14 @@ final List<Color> colorPalette=[
   Color.fromARGB(255, 13, 6, 110),
   Colors.pink,
   Color.fromARGB(255, 3, 51, 244),
-  Color.fromARGB(255, 249, 55, 55),
-  Colors.blueGrey,
+  Colors.cyan,
   Color.fromARGB(255, 248, 90, 79),
   Colors.green,
-  Colors.cyan,
+  Colors.lightBlueAccent,
+  Color.fromARGB(255, 80, 54, 45),
+  Color.fromARGB(255, 249, 155, 13),
+  Colors.blueGrey,
+  
   
 
 

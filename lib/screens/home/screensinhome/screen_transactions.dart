@@ -52,13 +52,8 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                         border: Border.all(color: Colors.black54, width: 3),
                         gradient: LinearGradient(
                           colors: [
-                            Color.fromARGB(255, 119, 21, 189),
-                            Colors.white,
-                            Color.fromARGB(255, 119, 21, 189),
-                            Colors.white,
-                            Color.fromARGB(255, 119, 21, 189),
-                            Colors.white,
-                            Color.fromARGB(255, 119, 21, 189),
+                             Color.fromARGB(255, 7, 12, 103),
+                            Color.fromARGB(255, 176, 30, 233)
                           ],
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,
@@ -74,7 +69,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                 'Total Balance ',
                                 style: GoogleFonts.signika(
                                     fontSize: 30,
-                                    color: Color.fromARGB(255, 50, 3, 3),
+                                    color: Color.fromARGB(255, 255, 255, 255),
                                     fontWeight: FontWeight.w700),
                                 textAlign: TextAlign.center,
                               ),

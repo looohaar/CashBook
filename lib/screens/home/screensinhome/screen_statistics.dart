@@ -43,13 +43,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        //   actions: [
-
-        //     Padding(
-        //       padding: const EdgeInsets.only(right: 50,top: 15),
-        //       child: Text('Monthly',style: GoogleFonts.signika(fontSize: 24,)
-        // ),
-        //     )],
+      
           centerTitle: true,
           title: Text(
             'Statistics',
