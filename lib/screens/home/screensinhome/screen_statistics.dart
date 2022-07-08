@@ -124,9 +124,9 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                                       monthlyYearly=DateTime(
                                         monthlyYearly.year-1,
                                         // nextline conmment chyd check chyd nok
-                                        monthlyYearly.month
+                                        // monthlyYearly.month
                                       );
-                                      firstFilterList= monthlyandyearlyLists(transactionsVariable)[0];
+                                      firstFilterList= monthlyandyearlyLists(transactionsVariable)[1];
                             }
                           });
                         },
@@ -154,8 +154,9 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                               
                             }else{
                               monthlyYearly=DateTime(monthlyYearly.year+1,
-                              monthlyYearly.month);
-                              firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
+                              // monthlyYearly.month
+                              );
+                              firstFilterList=monthlyandyearlyLists(transactionsVariable)[1];
                             
                             }
                           });
@@ -172,19 +173,19 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                        setState(() {
                           if (value!=null) {
                           if ((value=='Monthly')) {
-                            monthlyYearly=DateTime.now();
+                          
+                            setState(() {
+                                monthlyYearly=DateTime.now();
                             firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
                             popupItem=value.toString();
-                            setState(() {
-                              
                             });
                             
                           }else if(value=='Yearly'){
-                            monthlyYearly=DateTime.now();
-                            firstFilterList=monthlyandyearlyLists(transactionsVariable)[0];
-                            popupItem=value.toString();
+                           
                             setState(() {
-                              
+                               monthlyYearly=DateTime.now();
+                            firstFilterList=monthlyandyearlyLists(transactionsVariable)[1];
+                            popupItem=value.toString();
                             });
                           }
                           
@@ -308,6 +309,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
 
 
    List<List<Transactions>> monthlyandyearlyLists(Box <Transactions>monthlyandyearlyListsBox){
+    
     List<Transactions> monthlyList=[];
     List<Transactions> yearlyList=[];
     List<List<Transactions>> monthlyandyearlyLists=[

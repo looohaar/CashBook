@@ -54,23 +54,12 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                         gradient: LinearGradient(
                           colors: [
                            
-                            // Color.fromARGB(252, 202, 10, 116),
-                            // Color.fromARGB(255, 26, 26, 65),
-                            // Color.fromARGB(255, 24, 1, 65),   
-                            // Color.fromARGB(255, 24, 1, 65), 
-                            // Colors.pink
-                            Colors.amber,
-                            Color.fromARGB(255, 249, 186, 26),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Color.fromARGB(255, 63, 8, 94),
-                            Colors.amber,
-                            Colors.amber,
-
+                            Color.fromARGB(252, 202, 10, 116),
+                            Color.fromARGB(255, 26, 26, 65),
+                            Color.fromARGB(255, 24, 1, 65),   
+                            Color.fromARGB(255, 24, 1, 65), 
+                            Colors.pink
+                          
                           
                             
                           ],
