@@ -194,6 +194,9 @@ class _AddTransactionsState extends State<AddTransactions> {
                                 data: MediaQuery.of(context)
                                     .copyWith(textScaleFactor: 1),
                                 child: TextField(
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(15)
+                                  ],
                                   readOnly: true,
                                   enableInteractiveSelection: false,
                                   onTap: () async {
@@ -241,7 +244,8 @@ class _AddTransactionsState extends State<AddTransactions> {
                           RegExp(r"[\s,-]"),
                         ),
                         FilteringTextInputFormatter.allow(
-                            RegExp(r"^(?:0|[1-9]\d+|)?(?:.?\d*)?$"))
+                            RegExp(r"^(?:0|[1-9]\d+|)?(?:.?\d*)?$")),
+                            LengthLimitingTextInputFormatter(10)
                       ],
                               style: GoogleFonts.signika(fontSize: 25),
                               controller: amountController,

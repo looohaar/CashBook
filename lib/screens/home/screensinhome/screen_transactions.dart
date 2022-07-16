@@ -95,7 +95,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                   DateFormat('EE').format(DateTime.now()),
                                   style: GoogleFonts.signika(
                                     fontSize: 25,
-                                    color: Color.fromARGB(255, 221, 91, 238),
+                                    color: Color.fromARGB(255, 232, 124, 247),
                                     fontWeight: FontWeight.w600
                                   ),
                                 ),
@@ -107,7 +107,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                       DateFormat('dd MMM').format(DateTime.now()),
                                       style: GoogleFonts.signika(
                                         fontSize: 25,
-                                        color: Color.fromARGB(255, 221, 91, 238),
+                                        color: Color.fromARGB(255, 232, 124, 247),
                                         fontWeight: FontWeight.w600
                                       ),
 
@@ -275,20 +275,32 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Row(
-                                          mainAxisAlignment:
+                                              mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
-                                               crossAxisAlignment: CrossAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             Container(
-                                              height: 50,
+                                              height: 55,
                                               width: 60,
+                                              
                                               decoration: BoxDecoration(
-                                                color: buttonColor,
+                                                gradient: LinearGradient(colors: [
+                                                  
+                                                        Color.fromARGB(255, 24, 1, 65), 
+                                                            
+                                                               buttonColor,
+
+                                                ],
+                                                begin: Alignment.bottomCenter,
+                                                end: Alignment.topCenter,
+                                                ),
+                                                
                                                 borderRadius:
                                                     BorderRadius.circular(15),
                                               ),
                                               child: Center(
                                                 child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
                                                   children: [
                                                     Text(
                                                       DateFormat('EE').format(
@@ -322,67 +334,76 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(width: 20),
-                                            Column(
-                                              children: [
-                                                SizedBox(height: 13),
-                                                SizedBox(
-                                                  height: 50,
-                                                  width: 170,
-                                                  child: Text(
-                                                    transactionTileList[index]
-                                                        .categories,
-                                                    style: GoogleFonts.signika(
-                                                        fontSize: 25,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: transactionTileList[
-                                                                    index]
-                                                                .transactionType
-                                                            ? tileIncomeColor
-                                                            : tileExpenseColor),
-                                                    maxLines: 1,
-                                                  ),
-                                                ),
-                                                Visibility(
-                                                  visible: false,
-                                                  child: Text(
-                                                    transactionTileList[index].notes,
-                                                    
-                                                  ),
-                                                )
-                                              ],
+                                            SizedBox(width: 20
                                             ),
-                                          ],
-                                        ),
-                                        Row( 
-                                                
+                                            
 
-                                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                          SizedBox(
-                                              height: 30,
-                                              width: 100,
-   
-                                             child: FittedBox(
-                                              fit: BoxFit.contain,
-                                               child: Text(
-                                                     ' ₹ ${transactionTileList[index].amount}',
-                                                      style: GoogleFonts.signika(
-                                                     fontSize: 30,
-                                                   fontWeight: FontWeight.bold,
-                                                   color: Colors.black54),
-                                                   overflow: TextOverflow.ellipsis,
-                                                  maxLines: 1,
-                                                ),
-                                             ),
+                                            Container(
+                                              decoration: BoxDecoration(color: Color.fromARGB(220, 246, 214, 251)),
+                                              height: 70,
+                                              width:  290,
+                                              child: Row(
+                                                
+                                                children: [
+                                                  SizedBox(width: 15,),
+                                                  CircleAvatar(
+                                                    backgroundColor: buttonColor,
+                                                    child: transactionTileList[index].transactionType
+                                                    ?Icon(Icons.arrow_downward_sharp,color: Colors.white,size: 30,)
+                                                    : Icon(Icons.arrow_upward_sharp,color: Colors.white,size: 30,),
+                                                    
+                                                    radius: 25,
+                                                  ),
+                                                  SizedBox(width: 15,),
+                                                  Column(
+                                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                                  
+                                                    children: [
+                                                    
+                                                      Text(
+                                                        transactionTileList[index]
+                                                            .categories,
+                                                        style: GoogleFonts.signika(
+                                                            fontSize: 25,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: transactionTileList[
+                                                                        index]
+                                                                    .transactionType
+                                                                ? tileIncomeColor
+                                                                : tileExpenseColor),
+                                                        maxLines: 1,
+                                                      ),
+                                                      Visibility(
+                                                        visible: false,
+                                                        child: Text(
+                                                          transactionTileList[index].notes,
+                                                          
+                                                        ),
+                                                      ),
+                                                      // **********************
+                                                       Text(
+                                                             '₹ ${transactionTileList[index].amount}',
+                                                              style: GoogleFonts.signika(
+                                                             fontSize: 25,
+                                                           fontWeight: FontWeight.bold,
+                                                           color: Colors.black54),
+                                                           overflow: TextOverflow.ellipsis,
+                                                          maxLines: 1,
+                                                        ),
+                                                    ],
+                                                  ),
+                                                  
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
-                                 
+                                        
                                       ],
                                     ),
-                                    hdivider1,
+                                    SizedBox(height: 13,)
                                   ],
                                 ),
 
@@ -416,13 +437,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
 String greetingMessage(){
   var presentTime = DateTime.now().hour;
   if((presentTime<12)&& (presentTime>6)){
-    return 'Good Morning, ${finalName}';
+    return 'Hi ${finalName}, Good Morning!';
   }
   else if((presentTime>11 && (presentTime<16))){
-    return 'Good Afternoon, ${finalName}';
+    return 'Have A Good Afternoon ${finalName}';
   }
   else if((presentTime>15 && (presentTime<20))){
-    return 'Good Evening, ${finalName}';
+    return 'Hi ${finalName}, Good Evening!';
   }
   else{
     return 'Time for bed!';

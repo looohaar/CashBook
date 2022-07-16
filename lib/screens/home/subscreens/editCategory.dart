@@ -46,6 +46,7 @@ class _EditCategoryState extends State<EditCategory> {
       hdivider2,
       hdivider1,
       TextField(
+      
         style: GoogleFonts.signika(fontSize: 20),
         
         controller: categoryEditController,

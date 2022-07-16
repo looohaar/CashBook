@@ -3,6 +3,7 @@ import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -26,6 +27,9 @@ class AddCategory extends StatelessWidget {
                   fontWeight: FontWeight.w600),
             ),
             TextField(
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(15)
+              ],
               style: GoogleFonts.signika(fontSize:25),
               controller: addCategoryController,
               cursorColor: buttonColor,
