@@ -1,9 +1,11 @@
+
 import 'dart:math';
 import 'dart:ui';
 
 import 'package:cash_book/main.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_addtransactions.dart';
 import 'package:cash_book/screens/home/screensinhome/screen_categories.dart';
+import 'package:cash_book/screens/splash/screen_splash.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
@@ -54,17 +56,16 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                         gradient: LinearGradient(
                           colors: [
                            
-                            Color.fromARGB(252, 202, 10, 116),
-                            Color.fromARGB(255, 26, 26, 65),
-                            Color.fromARGB(255, 24, 1, 65),   
-                            Color.fromARGB(255, 24, 1, 65), 
-                            Colors.pink
-                          
+                           
+                            
+                              Color.fromARGB(255, 24, 1, 65), 
+                              buttonColor,
+
                           
                             
                           ],
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Padding(
@@ -72,15 +73,58 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                       child: Column(
                         children: [
                           Column(
+                            
                             children: [
+                              SizedBox(height: 40,
+                              width: 1000,
+                                child: FittedBox(
+                                  child: Text(greetingMessage(),
+                                  style: GoogleFonts.signika(
+                                    fontSize: 33,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.center,),
+                                ),
+                              ),
+                              hdivider1,
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                               
+                                Text(
+                                  DateFormat('EE').format(DateTime.now()),
+                                  style: GoogleFonts.signika(
+                                    fontSize: 25,
+                                    color: Color.fromARGB(255, 221, 91, 238),
+                                    fontWeight: FontWeight.w600
+                                  ),
+                                ),
+                                SizedBox(child:Text(',',style: GoogleFonts.signika(color: Color.fromARGB(255, 221, 91, 238),fontSize: 22,fontWeight: FontWeight.w500),),
+
+                                  width: 8,
+                                ),
+                                     Text(
+                                      DateFormat('dd MMM').format(DateTime.now()),
+                                      style: GoogleFonts.signika(
+                                        fontSize: 25,
+                                        color: Color.fromARGB(255, 221, 91, 238),
+                                        fontWeight: FontWeight.w600
+                                      ),
+
+                                     )
+                                                    
+                              ],
+                             ),
+                             hdivider2,
                               Text(
-                                'Total Balance ',
+                                'Total Balance',
                                 style: GoogleFonts.signika(
                                     fontSize: 30,
                                     color: Color.fromARGB(255, 255, 255, 255),
                                     fontWeight: FontWeight.w700),
                                 textAlign: TextAlign.center,
                               ),
+                              hdivider1,
                               SizedBox(
                                 height: 40,
                                 width: 1000,
@@ -108,13 +152,19 @@ class _TransactionHistoryState extends State<TransactionHistory> {
               ),
               hdivider2,
               Container(
-                child: Text(
-                  'All Transactions',
-                  style: GoogleFonts.signika(
-                      fontSize: 30,
-                      color: headingColor,
-                      fontWeight: FontWeight.w700),
-                
+                child: Column(
+                  children: [
+                    Text(
+                      'All Transactions',
+                      style: GoogleFonts.signika(
+                      
+                          fontSize: 30,
+                          color: headingColor,
+                          fontWeight: FontWeight.w700),
+                    
+                    ),
+                   
+                  ],
                 ),
                 
               ),
@@ -128,6 +178,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              
               ValueListenableBuilder(
                   valueListenable: transactionsVariable.listenable(),
                   builder: (BuildContext context, Box<Transactions> newBox,
@@ -137,15 +188,25 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                     return transactionTileList.length == 0 ||
                             transactionTileList.isEmpty ||
                             transactionTileList.length == null
-                        ? Center(
-                            child: Text(
-                              'No Transactions Found!',
-                              style: GoogleFonts.signika(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey),
-                            ),
-                          )
+                        ? Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(height:130,),
+                              Padding(
+                                padding: const EdgeInsets.all(48.0),
+                                child: Text(
+                                  'No Transactions Found',
+                                  style: GoogleFonts.signika(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.grey),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                         : ListView.separated(
                             physics: BouncingScrollPhysics(),
                             shrinkWrap: true,
@@ -294,27 +355,31 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                             ),
                                           ],
                                         ),
-                                        Padding(
-                                          padding:  EdgeInsets.fromLTRB(0,0,10,0),
-                                          child: SizedBox(
-                                            height: 30,
-                                            width: 110,
-   
-                                           child: FittedBox(
-                                            fit: BoxFit.fitHeight,
-                                             child: Text(
-                                                   ' ₹ ${transactionTileList[index].amount}',
-                                                    style: GoogleFonts.signika(
-                                                   fontSize: 30,
-                                                 fontWeight: FontWeight.bold,
-                                                 color: Colors.black54),
-                                                 overflow: TextOverflow.ellipsis,
-                                                maxLines: 1,
-                                                                           ),
-                                           ),
-                                          ),
-                                        ),
+                                        Row( 
+                                                
 
+                                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                          SizedBox(
+                                              height: 30,
+                                              width: 100,
+   
+                                             child: FittedBox(
+                                              fit: BoxFit.contain,
+                                               child: Text(
+                                                     ' ₹ ${transactionTileList[index].amount}',
+                                                      style: GoogleFonts.signika(
+                                                     fontSize: 30,
+                                                   fontWeight: FontWeight.bold,
+                                                   color: Colors.black54),
+                                                   overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,
+                                                ),
+                                             ),
+                                            ),
+                                          ],
+                                        ),
+                                 
                                       ],
                                     ),
                                     hdivider1,
@@ -338,13 +403,32 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                             },
                             itemCount: transactionTileList.length,
                           );
-                  })
+                  }
+                  )
             ],
           ),
         ),
       ),
     ));
   }
+
+
+String greetingMessage(){
+  var presentTime = DateTime.now().hour;
+  if((presentTime<12)&& (presentTime>6)){
+    return 'Good Morning, ${finalName}';
+  }
+  else if((presentTime>11 && (presentTime<16))){
+    return 'Good Afternoon, ${finalName}';
+  }
+  else if((presentTime>15 && (presentTime<20))){
+    return 'Good Evening, ${finalName}';
+  }
+  else{
+    return 'Time for bed!';
+  }
+}
+
 }
 
 List<Transactions> transactionHistory(Box<Transactions> box) {

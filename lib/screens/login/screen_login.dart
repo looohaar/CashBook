@@ -39,7 +39,7 @@ class Login extends StatelessWidget {
                 hdivider1,
                 hdivider1,
                 Text(
-                  'Welcome To CashBook !  ',
+                  'Welcome To CashBook  ',
                   style: GoogleFonts.signika(
                     fontSize: 32,
                     fontWeight: FontWeight.w700,
@@ -83,11 +83,16 @@ class Login extends StatelessWidget {
                 hdivider1,
                 ElevatedButton(
                   onPressed: () async{
-                    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-                    sharedPreferences.setString('name', 'nameController.text');
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+                    // final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+                    // sharedPreferences.setString('name', 'nameController.text');
+                    final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+                    sharedPreferences.setString('name', nameController.text.toString());
+                    
+                    nameController.text==null || nameController.text.isEmpty
+                    ? null
+                    :  Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
 
-
+                   
 
                   },
                   child: Text(

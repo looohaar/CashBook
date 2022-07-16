@@ -114,93 +114,98 @@ class _CategoriesState extends State<Categories>
                                   color: Colors.grey),
                             ),
                           )
-                        : ListView.separated(
-                            itemBuilder: (context, index) {
-                              return SizedBox(
-                                height: 75,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: Container(
-                                    color: Colors.transparent,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(
-                                          width: 220,
-                                          height: 50,
+                        : Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: ListView.separated(
+                              itemBuilder: (context, index) {
+                                return SizedBox(
+                                  height: 75,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Container(
+                                      color: Colors.transparent,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          SizedBox(
+                                            width: 220,
+                                            height: 50,
 
-                                          child: Text(
-                                            tabController!.index == 0
-                                                ? incomeList[index].categoryName
-                                                : expenseList[index]
-                                                    .categoryName,
-                                            style: GoogleFonts.signika(
-                                              fontSize: 27,
-                                            ),
-                                            maxLines: 1,
-                                          ),
-                                        ),
-                                        Row(
-                                          children: [
-                                            IconButton(
-                                                padding: EdgeInsets.zero,
-                                                onPressed: () {
-                                                  int key= tabController!.index==0?
-                                                  incomeList[index].key
-                                                  :expenseList[index].key;
-                                                  bool type= tabController!.index==0?
-                                                  incomeList[index].transactionType:
-                                                  expenseList[index].transactionType;
-                                                  showDialog(context: context, 
-                                                  builder: (context){
-                                                    return EditCategory(indexKey: key
-                                                    , transactionType: type);
-                                                  });
-                                                 
-
-                                                },
-                                                icon: Icon(
-                                                  Icons.edit,
-                                                  color: buttonColor,
-                                                )),
-                                                IconButton(
-                                                padding: EdgeInsets.zero,
-                                                onPressed: () {
-                                                  int key= tabController!.index==0
-                                                  ? incomeList[index].key
-                                                  : expenseList[index].key;
-                                                  showDialog(context: context,
-                                                   builder: (context)=>DeleteCategory(  key,
-                                                   null));
-                                                  
-                                                },
-                                                icon: Icon(
-                                                  Icons.delete,
-                                                  color: Colors.redAccent,
-                                                )
-                                                
+                                            child: Text(
+                                              tabController!.index == 0
+                                                  ? incomeList[index].categoryName
+                                                  : expenseList[index]
+                                                      .categoryName,
+                                              style: GoogleFonts.signika(
+                                                fontSize: 27,
                                               ),
-                                          ],
-                                        ),
-                                      ],
+                                              maxLines: 1,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              IconButton(
+                                                  padding: EdgeInsets.zero,
+                                                  onPressed: () {
+                                                    int key= tabController!.index==0?
+                                                    incomeList[index].key
+                                                    :expenseList[index].key;
+                                                    bool type= tabController!.index==0?
+                                                    incomeList[index].transactionType:
+                                                    expenseList[index].transactionType;
+                                                    showDialog(context: context, 
+                                                    builder: (context){
+                                                      return EditCategory(indexKey: key
+                                                      , transactionType: type);
+                                                    });
+                                                   
+
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.edit,
+                                                    color: buttonColor,
+                                                  )),
+                                                  IconButton(
+                                                  padding: EdgeInsets.zero,
+                                                  onPressed: () {
+                                                    int key= tabController!.index==0
+                                                    ? incomeList[index].key
+                                                    : expenseList[index].key;
+                                                    showDialog(context: context,
+                                                     builder: (context)=>DeleteCategory(  key,
+                                                     null));
+                                                    
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.delete,
+                                                    color: Colors.redAccent,
+                                                  )
+                                                  
+                                                ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
-                            separatorBuilder: (context, index) {
-                              return SizedBox(
-                                height: 2,
-                                child: Container(
-                                  color: Colors.grey,
-                                ),
-                              );
-                            },
-                            itemCount: tabController!.index == 0
-                                ? incomeList.length
-                                : expenseList.length,
-                          ),
+                                );
+                              },
+                             separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return  SizedBox(
+                                  height: 3,
+                                  child: Container(
+                                    color: headingColor,
+                                    child: Text(''),
+                                  ),
+                                );
+                              },
+                              itemCount: tabController!.index == 0
+                                  ? incomeList.length
+                                  : expenseList.length,
+                            ),
+                        ),
                   );
                 }),
           ],

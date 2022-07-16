@@ -303,7 +303,9 @@ class _AddTransactionsState extends State<AddTransactions> {
                                 
                               }else{
                                 transactionsVariable.put(
-                                  1231246060-(int.parse((dateformatKey.format(initialDate)+
+                                  // //  1231246060-
+                                  1231246060-
+                                  (int.parse((dateformatKey.format(initialDate)+
                                   dateformatter.format(DateTime.now())
                                   ))),
                                   Transactions(

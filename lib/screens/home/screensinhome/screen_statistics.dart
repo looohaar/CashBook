@@ -135,7 +135,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                          size: 35,)),
                          Text(
                           popupItem=='Monthly'?
-                          dateFormatMonth.format(monthlyYearly)
+                          dateFormatMonth.format(monthlyYearly).toString()
                           : monthlyYearly.year.toString(),
                           style: GoogleFonts.signika(
                             fontSize: 25,
@@ -245,24 +245,30 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
               child: ((getChartExpense(firstFilterList).isEmpty&& tabController!.index==1)
               || (getChartIncome(firstFilterList).isEmpty && tabController!.index==0))
               ?Center(
-                child: Text('No Data',
-                style: GoogleFonts.signika(fontSize: 30,color: Colors.grey,fontWeight: FontWeight.w500),),
+                child: Text('No Data Found',
+                style: GoogleFonts.signika(fontSize: 28,fontWeight:FontWeight.w700,color: Colors.grey,),),
               )
+              // ? ((getChartExpense(firstFilterList).isEmpty&& tabController!.index==1 && monthlyYearly.year+1))
               : SfCircularChart(
                 
                 centerY: '160',
                 legend: Legend(
-                  textStyle: GoogleFonts.signika(),
+                   position: LegendPosition.bottom,
+                  textStyle: GoogleFonts.signika(
+                    fontSize: 20
+                  ),
                   overflowMode: LegendItemOverflowMode.scroll,
                   // offset: Offset(-1000, -140),
                   // offset: Offset(-1000, -50),
-                  offset: Offset(-140, 350),
+                  // offset: Offset(-140, 350),
                   isVisible: true,
                   isResponsive: true,
                   orientation: LegendItemOrientation.vertical,
                   height: '100%',
-                  width: '80%',
-
+                  width: '1000%',
+                  iconHeight: 10,
+                  iconWidth: 20,  
+                
                 ),
                 tooltipBehavior: TooltipBehavior(
                   enable: true,
@@ -322,6 +328,9 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
       yearlyList.add(allTransactions[i]);
       
     }
+    // if (allTransactions.where((element) => false)) {
+      
+    // }
     if (allTransactions[i].date.month==monthlyYearly.month) {
      monthlyList.add(allTransactions[i]);      
     }
@@ -404,3 +413,12 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
     }
     return totalExpense;
    }
+
+// List<Transactions> yearlyList(List<Transactions> yearlyList){
+//   List<Transactions> yearlyList= transactionsVariable.values.toList();
+//   if (yearlyList.) {
+    
+//   }
+// }
+
+   

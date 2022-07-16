@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-var checkingname;
+var finalName;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -23,19 +23,25 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getVaildationData();
+    getValidationData();
 
 
 
   }
 
-  Future getVaildationData() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-    var obtainedName = sharedPreferences.getString('name');
-    checkingname = obtainedName;
-  }
+  // Future getVaildationData() async {
+  //   final SharedPreferences sharedPreferences =
+  //       await SharedPreferences.getInstance();
+  //   var obtainedName = sharedPreferences.getString('name');
+  //   checkingname = obtainedName;
+  // }
+         
 
+        Future getValidationData() async{
+          final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+          var userName= sharedPreferences.getString('name');
+           finalName=userName;
+        } 
   @override
   Widget build(BuildContext context) {
 
@@ -94,7 +100,7 @@ whenComplete(context);
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  checkingname == null ? Onboarding1() : Home())));
+                  finalName == null? Onboarding1() : Home())));
 
 
                 

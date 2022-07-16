@@ -2,6 +2,7 @@
 
 import 'package:cash_book/main.dart';
 import 'package:cash_book/screens/home/subscreens/addCategory.dart';
+import 'package:cash_book/screens/splash/screen_splash.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +56,9 @@ elevation: 0,
                   leading: Icon(
                     Icons.person,
                     color: headingColor,
-                    size: 35,
+                    size: 33,
                   ),
-                  title: Text('Name',
+                  title: Text(finalName,
                   style: GoogleFonts.signika(
                     fontSize: 25,
               
