@@ -29,6 +29,8 @@ class _EditCategoryState extends State<EditCategory> {
   }
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return AlertDialog(
       content: Column(
         
@@ -37,7 +39,8 @@ class _EditCategoryState extends State<EditCategory> {
         children: [
           Text('Edit Category',
       style: GoogleFonts.signika(color: buttonColor,
-      fontSize: 30
+      fontSize: mediaqueryWidth*0.07,
+      fontWeight: FontWeight.w600
       ),
       textAlign: TextAlign.center,
 
@@ -47,7 +50,7 @@ class _EditCategoryState extends State<EditCategory> {
       hdivider1,
       TextField(
       
-        style: GoogleFonts.signika(fontSize: 20),
+        style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.057),
         
         controller: categoryEditController,
         cursorColor: Colors.purple,

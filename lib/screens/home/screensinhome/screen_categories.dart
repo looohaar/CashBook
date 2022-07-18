@@ -33,6 +33,8 @@ class _CategoriesState extends State<Categories>
 
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
        backgroundColor: Colors.white,
       appBar: AppBar(
@@ -40,7 +42,7 @@ class _CategoriesState extends State<Categories>
         title: Text(
           'Add Categories',
           style: GoogleFonts.signika(
-            fontSize: 30,
+            fontSize: mediaqueryWidth*0.08,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -78,7 +80,7 @@ class _CategoriesState extends State<Categories>
                       child: Text(
                         'Income',
                         style: GoogleFonts.signika(
-                          fontSize: 30,
+                          fontSize: mediaqueryWidth*0.075,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -87,7 +89,7 @@ class _CategoriesState extends State<Categories>
                       child: Text(
                         'Expense',
                         style: GoogleFonts.signika(
-                          fontSize: 30,
+                          fontSize:  mediaqueryWidth*0.075,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -109,7 +111,7 @@ class _CategoriesState extends State<Categories>
                             child: Text(
                               'No Categories Found',
                               style: GoogleFonts.signika(
-                                  fontSize: 28,
+                                  fontSize: mediaqueryWidth*0.072,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.grey),
                             ),
@@ -119,7 +121,7 @@ class _CategoriesState extends State<Categories>
                           child: ListView.separated(
                               itemBuilder: (context, index) {
                                 return SizedBox(
-                                  height: 75,
+                                  height: mediaqueryHeight*0.09,
                                   child: Padding(
                                     padding: const EdgeInsets.all(20),
                                     child: Container(
@@ -129,6 +131,7 @@ class _CategoriesState extends State<Categories>
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           SizedBox(
+                                            // apply mediaquery if needed
                                             width: 220,
                                             height: 50,
 
@@ -138,7 +141,7 @@ class _CategoriesState extends State<Categories>
                                                   : expenseList[index]
                                                       .categoryName,
                                               style: GoogleFonts.signika(
-                                                fontSize: 27,
+                                                fontSize:  mediaqueryWidth*0.072,
                                               ),
                                               maxLines: 1,
                                             ),

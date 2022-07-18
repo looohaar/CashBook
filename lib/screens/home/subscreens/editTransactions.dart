@@ -64,6 +64,8 @@ class _EditTransactionState extends State<EditTransaction> {
 
   @override
   Widget build(BuildContext context) {
+      double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -72,14 +74,14 @@ class _EditTransactionState extends State<EditTransaction> {
                   'Income',
                   style: GoogleFonts.signika(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: mediaqueryWidth*0.08,
                       fontWeight: FontWeight.w700),
                 )
               : Text(
                   'Expense',
                   style: GoogleFonts.signika(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize:  mediaqueryWidth*0.08,
                       fontWeight: FontWeight.w700),
                 ),
           elevation: 0,
@@ -96,7 +98,7 @@ class _EditTransactionState extends State<EditTransaction> {
                       children: [
                         Text(
                           'Date',
-                          style: GoogleFonts.signika(fontSize: 30),
+                          style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.075,),
                         ),
                         SizedBox(
                           width: 150,
@@ -104,7 +106,7 @@ class _EditTransactionState extends State<EditTransaction> {
                             readOnly: true,
                             enableInteractiveSelection: false,
                             controller: dateController,
-                            style: GoogleFonts.signika(fontSize: 25),
+                            style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.065,),
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.all(5),
                               isDense: true,
@@ -150,14 +152,14 @@ class _EditTransactionState extends State<EditTransaction> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Category',
-                            style: GoogleFonts.signika(fontSize: 30)),
+                            style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.075)),
                         SizedBox(
                           width: 150,
                           child: TextField(
                             readOnly: true,
                             enableInteractiveSelection: false,
                             controller: categoriesController,
-                            style: GoogleFonts.signika(fontSize: 25),
+                            style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.065),
                             decoration: InputDecoration(
                               isDense: true,
                               contentPadding: EdgeInsets.all(5),
@@ -196,7 +198,7 @@ class _EditTransactionState extends State<EditTransaction> {
                       children: [
                         Text('Amount',
                             style: GoogleFonts.signika(
-                              fontSize: 30,
+                              fontSize: mediaqueryWidth*0.075
                             )),
                         SizedBox(
                           width: 150,
@@ -211,7 +213,7 @@ class _EditTransactionState extends State<EditTransaction> {
                             cursorColor: buttonColor,
                             enableInteractiveSelection: false,
                             keyboardType: TextInputType.number,
-                            style: GoogleFonts.signika(fontSize: 25),
+                            style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.065),
                             controller: amountController,
                             decoration: InputDecoration(
                               isDense: true,
@@ -230,7 +232,7 @@ class _EditTransactionState extends State<EditTransaction> {
                       children: [
                         Text('Notes',
                             style: GoogleFonts.signika(
-                              fontSize: 30,
+                              fontSize: mediaqueryWidth*0.075
                             )),
                         SizedBox(
                           width: 150,
@@ -239,7 +241,7 @@ class _EditTransactionState extends State<EditTransaction> {
                             cursorColor: buttonColor,
                             enableInteractiveSelection: false,
                             keyboardType: TextInputType.text,
-                            style: GoogleFonts.signika(fontSize: 25),
+                            style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.065),
                             decoration: InputDecoration(
                               isDense: true,
                               contentPadding: EdgeInsets.all(5),

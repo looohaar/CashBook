@@ -28,6 +28,8 @@ class TransactionHistory extends StatefulWidget {
 class _TransactionHistoryState extends State<TransactionHistory> {
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
            backgroundColor: Colors.white,
@@ -49,7 +51,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                   double totalExpense = totalAmount(transactionList)[1];
 
                   return Container(
-                    height: 220,
+                    height: mediaqueryHeight*0.28,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.black54, width: 3),
@@ -80,7 +82,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                 child: FittedBox(
                                   child: Text(greetingMessage(),
                                   style: GoogleFonts.signika(
-                                    fontSize: 33,
+                                    fontSize: mediaqueryWidth*0.08,
                                     color: Colors.white,
                                   ),
                                   textAlign: TextAlign.center,),
@@ -94,7 +96,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                 Text(
                                   DateFormat('EE').format(DateTime.now()),
                                   style: GoogleFonts.signika(
-                                    fontSize: 25,
+                                    fontSize: mediaqueryWidth*0.068,
                                     color: Color.fromARGB(255, 232, 124, 247),
                                     fontWeight: FontWeight.w600
                                   ),
@@ -106,7 +108,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                      Text(
                                       DateFormat('dd MMM').format(DateTime.now()),
                                       style: GoogleFonts.signika(
-                                        fontSize: 25,
+                                        fontSize: mediaqueryWidth*0.068,
                                         color: Color.fromARGB(255, 232, 124, 247),
                                         fontWeight: FontWeight.w600
                                       ),
@@ -119,20 +121,20 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                               Text(
                                 'Total Balance',
                                 style: GoogleFonts.signika(
-                                    fontSize: 30,
+                                    fontSize:mediaqueryWidth*0.08,
                                     color: Color.fromARGB(255, 255, 255, 255),
                                     fontWeight: FontWeight.w700),
                                 textAlign: TextAlign.center,
                               ),
                               hdivider1,
                               SizedBox(
-                                height: 40,
-                                width: 1000,
+                                height: mediaqueryWidth*0.1,
+                                width: double.infinity,
                                 child: FittedBox(
                                   child: Text(
                                     '₹ ${totalIncome - totalExpense}',
                                     style: GoogleFonts.signika(
-                                      fontSize: 30,
+                                      fontSize: mediaqueryWidth*0.07,
                                       color: totalIncome - totalExpense < 0
                                           ? expenseColor
                                           : incomeColor,
@@ -158,7 +160,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                       'All Transactions',
                       style: GoogleFonts.signika(
                       
-                          fontSize: 30,
+                          fontSize: mediaqueryWidth*0.0755,
                           color: headingColor,
                           fontWeight: FontWeight.w700),
                     
@@ -199,7 +201,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                 child: Text(
                                   'No Transactions Found',
                                   style: GoogleFonts.signika(
-                                      fontSize: 28,
+                                      fontSize:mediaqueryWidth*0.071,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.grey),
                                 ),
@@ -219,13 +221,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                         title: Text(
                                           'Delete Transaction',
                                           style: GoogleFonts.signika(
-                                              fontSize: 30, color: buttonColor),
+                                              fontSize: mediaqueryWidth*0.07, color: buttonColor),
                                           textAlign: TextAlign.center,
                                         ),
                                         content: Text(
                                           'Are You Sure You Want To Delete ?',
                                           style: GoogleFonts.signika(
-                                              fontSize: 20,
+                                              fontSize: mediaqueryWidth*0.057,
                                               color: Colors.black),
                                           textAlign: TextAlign.center,
                                         ),
@@ -239,7 +241,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                               },
                                               child: Text('Yes',
                                                   style: GoogleFonts.signika(
-                                                      fontSize: 20,
+                                                      fontSize: mediaqueryWidth*0.052,
                                                      ))),
                                           TextButton(
                                               onPressed: () {
@@ -247,7 +249,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                               },
                                               child: Text('No',
                                                   style: GoogleFonts.signika(
-                                                    fontSize: 20,
+                                                    fontSize: mediaqueryWidth*0.052,
                                                    
                                                   )))
                                         ],
@@ -268,9 +270,9 @@ class _TransactionHistoryState extends State<TransactionHistory> {
 
                                 child: Column(
                                   children: [
-                                      SizedBox(height: 12),
+                                      SizedBox(height:  mediaqueryWidth*0.031),
                                     Row(
-                                      mainAxisAlignment:
+                                          mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
@@ -280,8 +282,8 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                               crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             Container(
-                                              height: 55,
-                                              width: 60,
+                                              height: mediaqueryHeight*0.072,
+                                              width: mediaqueryWidth*0.15,
                                               
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(colors: [
@@ -309,7 +311,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                               .date),
                                                       style:
                                                           GoogleFonts.signika(
-                                                              fontSize: 18,
+                                                              fontSize:  mediaqueryWidth*0.051,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -323,7 +325,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                               .date),
                                                       style:
                                                           GoogleFonts.signika(
-                                                              fontSize: 18,
+                                                              fontSize:mediaqueryWidth*0.05,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -334,27 +336,27 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(width: 20
+                                            SizedBox(width: mediaqueryWidth*0.05,
                                             ),
                                             
 
                                             Container(
                                               decoration: BoxDecoration(color: Color.fromARGB(220, 246, 214, 251)),
-                                              height: 70,
-                                              width:  290,
+                                              height: mediaqueryHeight*0.08,
+                                              width:  mediaqueryWidth*0.749,
                                               child: Row(
                                                 
                                                 children: [
-                                                  SizedBox(width: 15,),
+                                                  SizedBox(width: mediaqueryWidth*0.025,),
                                                   CircleAvatar(
                                                     backgroundColor: buttonColor,
                                                     child: transactionTileList[index].transactionType
-                                                    ?Icon(Icons.arrow_downward_sharp,color: Colors.white,size: 30,)
-                                                    : Icon(Icons.arrow_upward_sharp,color: Colors.white,size: 30,),
+                                                    ?Icon(Icons.arrow_downward_sharp,color: Colors.white,size: mediaqueryWidth*0.08,)
+                                                    : Icon(Icons.arrow_upward_sharp,color: Colors.white,size:mediaqueryWidth*0.08,),
                                                     
-                                                    radius: 25,
+                                                    radius: mediaqueryWidth*0.06,
                                                   ),
-                                                  SizedBox(width: 15,),
+                                                  SizedBox(width: mediaqueryWidth*0.05,),
                                                   Column(
                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                    crossAxisAlignment: CrossAxisAlignment.start,
@@ -365,7 +367,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                         transactionTileList[index]
                                                             .categories,
                                                         style: GoogleFonts.signika(
-                                                            fontSize: 25,
+                                                            fontSize: mediaqueryWidth*0.065,
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             color: transactionTileList[
@@ -386,7 +388,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                        Text(
                                                              '₹ ${transactionTileList[index].amount}',
                                                               style: GoogleFonts.signika(
-                                                             fontSize: 25,
+                                                             fontSize: mediaqueryWidth*0.06,
                                                            fontWeight: FontWeight.bold,
                                                            color: Colors.black54),
                                                            overflow: TextOverflow.ellipsis,
@@ -440,7 +442,7 @@ String greetingMessage(){
     return 'Hi ${finalName}, Good Morning!';
   }
   else if((presentTime>11 && (presentTime<16))){
-    return 'Have A Good Afternoon ${finalName}';
+    return 'Good Afternoon ${finalName}';
   }
   else if((presentTime>15 && (presentTime<20))){
     return 'Hi ${finalName}, Good Evening!';

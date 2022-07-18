@@ -12,6 +12,8 @@ class AddCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return AlertDialog(
       content: SizedBox(
         height: 200,
@@ -22,7 +24,7 @@ class AddCategory extends StatelessWidget {
             Text(
               'Add Category',
               style: GoogleFonts.signika(
-                  fontSize: 30,
+                  fontSize: mediaqueryWidth*0.07,
                   color: headingColor,
                   fontWeight: FontWeight.w600),
             ),
@@ -30,7 +32,7 @@ class AddCategory extends StatelessWidget {
               inputFormatters: [
                 LengthLimitingTextInputFormatter(15)
               ],
-              style: GoogleFonts.signika(fontSize:25),
+              style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.057),
               controller: addCategoryController,
               cursorColor: buttonColor,
               decoration: InputDecoration(

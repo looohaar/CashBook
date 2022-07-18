@@ -43,6 +43,8 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
@@ -51,7 +53,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
           title: Text(
             'Statistics',
             style: GoogleFonts.signika(
-              fontSize: 30,
+              fontSize: mediaqueryWidth*0.08,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -87,7 +89,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                         child: Text(
                           'Income',
                           style: GoogleFonts.signika(
-                            fontSize: 30,
+                            fontSize: mediaqueryWidth*0.075,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -96,7 +98,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                         child: Text(
                           'Expense',
                           style: GoogleFonts.signika(
-                            fontSize: 30,
+                            fontSize: mediaqueryWidth*0.075,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -246,7 +248,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
               || (getChartIncome(firstFilterList).isEmpty && tabController!.index==0))
               ?Center(
                 child: Text('No Data Found',
-                style: GoogleFonts.signika(fontSize: 28,fontWeight:FontWeight.w700,color: Colors.grey,),),
+                style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.072,fontWeight:FontWeight.w700,color: Colors.grey,),),
               )
               // ? ((getChartExpense(firstFilterList).isEmpty&& tabController!.index==1 && monthlyYearly.year+1))
               : SfCircularChart(

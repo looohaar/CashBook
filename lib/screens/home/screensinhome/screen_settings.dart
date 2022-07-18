@@ -24,13 +24,17 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
+
+    
     return Scaffold(
        backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text('Settings',
         style: GoogleFonts.signika(
-          fontSize: 30,
+          fontSize: mediaqueryWidth*0.08,
           fontWeight: FontWeight.w700,
           color: Colors.white,
 
@@ -51,16 +55,16 @@ elevation: 0,
             // mainAxisSize: MainAxisSize.max,
             children: [
               SizedBox(
-                height: 30,
+                height: mediaqueryHeight*0.038,
                 child: ListTile(
                   leading: Icon(
                     Icons.person,
                     color: headingColor,
-                    size: 33,
+                    size: mediaqueryWidth*0.085,
                   ),
                   title: Text(finalName,
                   style: GoogleFonts.signika(
-                    fontSize: 25,
+                    fontSize: mediaqueryWidth*0.07,
               
                   ),),
                 ),
@@ -68,18 +72,18 @@ elevation: 0,
               hdivider2,
                hdivider2,
               SizedBox(
-                height: 30,
+                height:  mediaqueryHeight*0.038,
                 
                   child: GestureDetector(
                     onTap: ()=> showDialog(
                       context: context, 
                       builder: (context){
                         return AlertDialog(
-                          title: Text('Reset Data',style: GoogleFonts.signika(fontSize: 25,color: buttonColor,fontWeight: FontWeight.w500),
+                          title: Text('Reset Data',style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: buttonColor,fontWeight: FontWeight.w500),
                           textAlign: TextAlign.center,),
                           content: Text('Do You Want To Reset Data ?',
                            style: GoogleFonts.signika(
-                            fontSize:20,
+                            fontSize:mediaqueryWidth*0.057,
                             color: Colors.black,
                           ),
                           textAlign: TextAlign.center,
@@ -94,7 +98,7 @@ elevation: 0,
                              child: Text('Yes',
                              style: GoogleFonts.signika(
                               color: buttonColor,
-                              fontSize: 18
+                              fontSize: mediaqueryWidth*0.052,
 
                               
                              ),)),
@@ -104,7 +108,7 @@ elevation: 0,
                               child: Text('No',
                               style: GoogleFonts.signika(
                                 color: buttonColor,
-                                fontSize: 18
+                                fontSize: mediaqueryWidth*0.052,
                               ),))
                           ],
 
@@ -114,10 +118,10 @@ elevation: 0,
                       }, 
                    ),
                    child: ListTile(
-                    leading: Icon(Icons.refresh_sharp,color: headingColor,size: 35,),
+                    leading: Icon(Icons.refresh_sharp,color: headingColor,size: mediaqueryWidth*0.0878,),
                     title: Text('Reset Data',
                     style:GoogleFonts.signika(
-                      fontSize: 25
+                      fontSize: mediaqueryWidth*0.07
                     ),),
                    )
                   ),
@@ -126,7 +130,7 @@ elevation: 0,
               hdivider2,
               hdivider2,
               SizedBox(
-                height: 30,
+                height:  mediaqueryHeight*0.038,
                 child: GestureDetector(
                   onTap: ()=> EmailAndUrl.openEmail(
                     toEmail: 'looohaar@gmail.com',
@@ -134,36 +138,36 @@ elevation: 0,
                   ),
                  
                   child: ListTile(
-                    leading: Icon(Icons.email,color: headingColor,size: 30,),
+                    leading: Icon(Icons.email,color: headingColor,size: mediaqueryWidth*0.08,),
 
-                    title: Text('Feedback',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
+                    title: Text('Feedback',style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: Colors.black),),
                   ),
                 ),
               ),
               hdivider2,
               hdivider2,
               SizedBox(
-                height: 30,
+                height:  mediaqueryHeight*0.038,
                 child: GestureDetector(
                   onTap: ()=>Share.share('Hi,please be kind to check out this moneymanager application. I assure you tht this appliction will help you in your Financial journey ..#url kodukanam upload chyd kazhinjit'),
                   child: ListTile(
-                    leading: Icon(Icons.share_sharp,color: headingColor,size: 30,),
+                    leading: Icon(Icons.share_sharp,color: headingColor,size: mediaqueryWidth*0.084,),
                     title: Text('Share App',
-                    style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
+                    style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: Colors.black),),
                   ),
                 ),
               ),
               hdivider2,
               hdivider2,
             SizedBox(
-              height: 30,
+              height:  mediaqueryHeight*0.038,
               child: GestureDetector(
                 onTap: (){
 
                 },
                 child: ListTile(
-                  leading: Icon(Icons.star,color: headingColor,size: 33,),
-                  title: Text('Rate App',style: GoogleFonts.signika(fontSize:25,color: Colors.black),
+                  leading: Icon(Icons.star,color: headingColor,size: mediaqueryWidth*0.087,),
+                  title: Text('Rate App',style: GoogleFonts.signika(fontSize:mediaqueryWidth*0.07,color: Colors.black),
 
                 ),
               ),
@@ -172,12 +176,12 @@ elevation: 0,
            hdivider2,
            hdivider2,
            SizedBox(
-            height: 30,
+            height:  mediaqueryHeight*0.038,
             child: GestureDetector(
               onTap: ()=> EmailAndUrl.openLink(url: 'app upload chydit url kodknam'),
               child: ListTile(
-                leading: Icon(Icons.privacy_tip_outlined,color: headingColor,size: 30,),
-                title: Text('Privacy Policy',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),
+                leading: Icon(Icons.privacy_tip_outlined,color: headingColor,size:mediaqueryWidth*0.084,),
+                title: Text('Privacy Policy',style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: Colors.black),
               ),
             ),
           
@@ -190,23 +194,23 @@ elevation: 0,
             hdivider2,
                 hdivider2,
                 SizedBox(
-                  height: 30,
+                  height:  mediaqueryHeight*0.038,
               child: GestureDetector(
                 onTap: ()=>EmailAndUrl.openLink(url: 'www.linkedin.com/in/rahul-rajeev-500b1b200'),
                 child: ListTile(
-                  leading: Icon(Icons.info,color: headingColor,size: 33,),
-                  title: Text('About Me',style: GoogleFonts.signika(fontSize: 25,color: Colors.black),),
+                  leading: Icon(Icons.info,color: headingColor,size:mediaqueryWidth*0.086,),
+                  title: Text('About Me',style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: Colors.black),),
                   
                 ),
               ),
               
                 ),
-               SizedBox(height: 225),
+               SizedBox(height: 210),
                 SizedBox(
-                  height: 30,
+                  height: mediaqueryHeight*0.038,
                   child: Center(
                     child: Text('Version 1.0',
-                    style: GoogleFonts.signika(fontSize: 20,color: Colors.grey,),),
+                    style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.05,color: Colors.grey,),),
 
                   ),
                 )

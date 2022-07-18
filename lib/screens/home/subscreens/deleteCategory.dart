@@ -18,17 +18,19 @@ DeleteCategory(this.categoryKey, this.transactionKey);
  
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return AlertDialog(
       title: Text('Delete Category',
       style: GoogleFonts.signika(
-        fontSize: 30,
+        fontSize:  mediaqueryWidth*0.07,
         color: buttonColor,
 
       ),
       textAlign: TextAlign.center,),
       content: Text('Are You Sure You Want To Delete ?',
       style: GoogleFonts.signika(
-        fontSize: 20
+        fontSize:mediaqueryWidth*0.057,
       ),
        textAlign: TextAlign.center),
       actions: [
@@ -56,12 +58,12 @@ DeleteCategory(this.categoryKey, this.transactionKey);
 
         }, 
         child: Text('Yes',
-         style: GoogleFonts.signika(fontSize: 20),)),
+         style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.052,),)),
         TextButton(onPressed: (){
           Navigator.pop(context);
         }, 
         child: Text('No',
-        style: GoogleFonts.signika(fontSize: 20),))
+        style: GoogleFonts.signika(fontSize:mediaqueryWidth*0.052,),))
 
       ],
     );

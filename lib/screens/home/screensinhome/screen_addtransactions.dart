@@ -41,6 +41,8 @@ class _AddTransactionsState extends State<AddTransactions> {
 
   @override
   Widget build(BuildContext context) {
+      double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -48,7 +50,7 @@ class _AddTransactionsState extends State<AddTransactions> {
         title: Text(
           'Add Transaction',
           style: GoogleFonts.signika(
-            fontSize: 30,
+            fontSize: mediaqueryWidth*0.08,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -90,7 +92,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                         child: Text(
                           'Income',
                           style: GoogleFonts.signika(
-                            fontSize: 30,
+                            fontSize: mediaqueryWidth*0.075,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -99,7 +101,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                         child: Text(
                           'Expense',
                           style: GoogleFonts.signika(
-                            fontSize: 30,
+                            fontSize: mediaqueryWidth*0.075,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -123,7 +125,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                         children: [
                           Text(
                             'Date',
-                            style: GoogleFonts.signika(fontSize: 30),
+                            style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.075,),
                           ),
                           SizedBox(
                             width: 150,
@@ -165,7 +167,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                                   });
                                 },
                                 controller: dateController,
-                                style: GoogleFonts.signika(fontSize: 25),
+                                style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.065),
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(5),
                                     isDense: true,
@@ -186,7 +188,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                         children: [
                           Text(
                             'Category',
-                            style: GoogleFonts.signika(fontSize: 30),
+                            style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.075,),
                           ),
                           SizedBox(
                             width: 150,
@@ -211,7 +213,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                                   },
                                   controller: categoryController,
                                   style: GoogleFonts.signika(
-                                    fontSize: 25,
+                                    fontSize:  mediaqueryWidth*0.065,
                                     color: Colors.black,
                                   ),
                                   decoration: InputDecoration(
@@ -234,7 +236,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                         children: [
                           Text(
                             'Amount',
-                            style: GoogleFonts.signika(fontSize: 30),
+                            style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.075,),
                           ),
                           SizedBox(
                             width: 150,
@@ -247,7 +249,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                             RegExp(r"^(?:0|[1-9]\d+|)?(?:.?\d*)?$")),
                             LengthLimitingTextInputFormatter(10)
                       ],
-                              style: GoogleFonts.signika(fontSize: 25),
+                              style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.065,),
                               controller: amountController,
                               cursorColor: buttonColor,
                               keyboardType: TextInputType.number,
@@ -270,11 +272,11 @@ class _AddTransactionsState extends State<AddTransactions> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Notes',
-                              style: GoogleFonts.signika(fontSize: 30)),
+                              style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.075,)),
                           SizedBox(
                             width: 150,
                             child: TextField(
-                              style: GoogleFonts.signika(fontSize: 25),
+                              style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.065,),
 
                               // cursorColor: buttonColor,
                               controller: notesContorller,
@@ -328,7 +330,7 @@ class _AddTransactionsState extends State<AddTransactions> {
                               'Save',
                               style: GoogleFonts.signika(
                                   color: Colors.white,
-                                  fontSize: 25,
+                                  fontSize:  mediaqueryWidth*0.075,
                                   fontWeight: FontWeight.w700),
                             ),
                             style: ElevatedButton.styleFrom(
