@@ -10,6 +10,8 @@ class Onboarding2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -25,7 +27,7 @@ class Onboarding2 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height:200 ,
+                      height:mediaqueryHeight*0.28,
                       width: double.infinity,
                       child: Image(image: AssetImage('assets/images/onboarding2.jpg')),
                     ),
@@ -33,14 +35,14 @@ class Onboarding2 extends StatelessWidget {
                     Text('Build Your Wealth',
                     style:GoogleFonts.signika(
                       color: headingColor,
-                      fontSize: 32,
+                      fontSize: mediaqueryHeight*0.039,
                       fontWeight: FontWeight.w700,
                     ) ,
                     ),
                     hdivider2,
                     Text('CashBook will be the backbone of your wealth generation game.This application will give you all the suggestions for accumulating wealth and spending money.',
                     style: GoogleFonts.signika(
-                      fontSize: 20,
+                      fontSize: mediaqueryHeight*0.025,
                       color: textColor,
                       
                     ),
@@ -53,8 +55,9 @@ class Onboarding2 extends StatelessWidget {
                         
                       },
                        child: Text('Next',style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         color: Colors.white,
+                        fontWeight: FontWeight.w600
                         ),
                         ),
                         style: ElevatedButton.styleFrom(

@@ -50,8 +50,8 @@ whenComplete(context);
 
     return Scaffold(
         body: Container(
-      decoration: BoxDecoration(color: Color.fromARGB(255, 101, 23, 127)),
-      child: Column(
+        decoration: BoxDecoration(color: Color.fromARGB(255, 101, 23, 127)),
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           SizedBox(

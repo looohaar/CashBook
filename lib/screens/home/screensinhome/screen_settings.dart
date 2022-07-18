@@ -22,6 +22,11 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  var name;
+  @override
+  void initState(){
+    name= finalName;
+  }
   @override
   Widget build(BuildContext context) {
     double mediaqueryHeight= MediaQuery.of(context).size.height;
@@ -52,7 +57,7 @@ elevation: 0,
           padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            // mainAxisSize: MainAxisSize.max,
+           
             children: [
               SizedBox(
                 height: mediaqueryHeight*0.038,
@@ -62,7 +67,7 @@ elevation: 0,
                     color: headingColor,
                     size: mediaqueryWidth*0.085,
                   ),
-                  title: Text(finalName,
+                  title: Text(name,
                   style: GoogleFonts.signika(
                     fontSize: mediaqueryWidth*0.07,
               

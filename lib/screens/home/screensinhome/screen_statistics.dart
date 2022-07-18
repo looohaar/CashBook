@@ -72,7 +72,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                     } else {
                       tabColor = expenseColor;
                     }
-                    // tabColor= Color.fromARGB(255, 20, 2, 46);
+                    
                   });
                 });
                 // nthelum issues vannal TabBar Column il wrap chydo
@@ -134,13 +134,13 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                         },
                          icon: Icon(Icons.keyboard_arrow_left,
                          color: headingColor,
-                         size: 35,)),
+                         size:  mediaqueryWidth*0.095)),
                          Text(
                           popupItem=='Monthly'?
                           dateFormatMonth.format(monthlyYearly).toString()
                           : monthlyYearly.year.toString(),
                           style: GoogleFonts.signika(
-                            fontSize: 25,
+                            fontSize:  mediaqueryWidth*0.065,
                             color: headingColor,
                             fontWeight: FontWeight.w600
                           ),
@@ -163,7 +163,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                             }
                           });
                          },
-                          icon: Icon(Icons.keyboard_arrow_right,size: 35,color: headingColor,)
+                          icon: Icon(Icons.keyboard_arrow_right,size:  mediaqueryWidth*0.095,color: headingColor,)
                           )
                       ],
 
@@ -196,6 +196,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                       },
                       initialValue: popupItem,
                       itemBuilder: (context)=>[
+                        // no mediaquery applied
                       PopupMenuItem(child: Text('Monthly',style: GoogleFonts.signika(fontSize: 20,color: Colors.black),),value: 'Monthly',),
                       PopupMenuItem(child: Text('Yearly',style: GoogleFonts.signika(fontSize: 20,color: Colors.black),),value: 'Yearly',),
                       
@@ -215,9 +216,9 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          SizedBox(width: 5,),
-                          // Padding(padding: EdgeInsets.all(10)),
-                          Text(popupItem,style: GoogleFonts.signika(fontSize: 23),
+                          SizedBox(width:  mediaqueryWidth*0.0095,),
+                        // dfsasfddsfdsfsdfdsfsdfs
+                          Text(popupItem,style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.06),
                           ),
                           SizedBox(width: 10,),
                           Icon(Icons.keyboard_arrow_down,size: 30,)
@@ -239,7 +240,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                   tabController!.index==0
                   ?'Total Income : ${incomeSum(firstFilterList)}'
                   : 'Total Expense : ${expenseSum(firstFilterList)}',
-                  style: GoogleFonts.signika(fontSize: 25, fontWeight: FontWeight.w500),
+                  style: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.065, fontWeight: FontWeight.w500),
                 ),
               ),
               Expanded(child: 
@@ -248,16 +249,16 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
               || (getChartIncome(firstFilterList).isEmpty && tabController!.index==0))
               ?Center(
                 child: Text('No Data Found',
-                style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.072,fontWeight:FontWeight.w700,color: Colors.grey,),),
+                style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,fontWeight:FontWeight.w700,color: Colors.grey,),),
               )
               // ? ((getChartExpense(firstFilterList).isEmpty&& tabController!.index==1 && monthlyYearly.year+1))
               : SfCircularChart(
                 
                 centerY: '160',
                 legend: Legend(
-                   position: LegendPosition.bottom,
+                  position: LegendPosition.bottom,
                   textStyle: GoogleFonts.signika(
-                    fontSize: 20
+                  fontSize: mediaqueryWidth*0.055
                   ),
                   overflowMode: LegendItemOverflowMode.scroll,
                   // offset: Offset(-1000, -140),
@@ -268,8 +269,8 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
                   orientation: LegendItemOrientation.vertical,
                   height: '100%',
                   width: '1000%',
-                  iconHeight: 10,
-                  iconWidth: 20,  
+                  iconHeight:  mediaqueryHeight*0.02,
+                  iconWidth:  mediaqueryWidth*0.055
                 
                 ),
                 tooltipBehavior: TooltipBehavior(
@@ -300,7 +301,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
           ),
           labelPosition: ChartDataLabelPosition.outside,
           isVisible: true,
-          textStyle: GoogleFonts.signika(fontSize: 20),
+          textStyle: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.05),
 
         )
                      )

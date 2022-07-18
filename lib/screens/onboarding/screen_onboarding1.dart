@@ -11,6 +11,8 @@ class Onboarding1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+     double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
       body:SafeArea(
         
@@ -27,7 +29,7 @@ class Onboarding1 extends StatelessWidget {
                 
                   children: [
                     SizedBox(
-                      height: 200,
+                      height: mediaqueryHeight*0.28,
                       width: double.infinity,
                       child: Image(image: AssetImage('assets/images/purse.png')),
               
@@ -35,7 +37,7 @@ class Onboarding1 extends StatelessWidget {
                          hdivider2,
                          Text('Analyze Your Spending',
                          style: GoogleFonts.signika(
-                fontSize: 32,
+                fontSize: mediaqueryHeight*0.039,
                 
                 fontWeight: FontWeight.w700,
                 color:headingColor,
@@ -47,7 +49,7 @@ class Onboarding1 extends StatelessWidget {
               
                          style: GoogleFonts.signika(
                 textStyle:  TextStyle(
-                fontSize: 20,
+                fontSize: mediaqueryHeight*0.025,
                 color: textColor
                 
                          ),
@@ -60,7 +62,7 @@ class Onboarding1 extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Onboarding2()));
                 },
-                child: Text('Next',style: TextStyle(fontSize: 20,color: Colors.white),),
+                child: Text('Next',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w600),),
                 style: ElevatedButton.styleFrom(
                   primary: buttonColor,
                   shape: RoundedRectangleBorder(

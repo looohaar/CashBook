@@ -14,12 +14,14 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double mediaqueryHeight= MediaQuery.of(context).size.height;
+     double mediaqueryWidth= MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
           'CashBook',
-          style: GoogleFonts.signika(fontSize: 35, fontWeight: FontWeight.w700),
+          style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.08, fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
         elevation: 0,
@@ -32,7 +34,7 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  height: 150,
+                  height:mediaqueryWidth*0.40,
                   width: double.infinity,
                   child: Image(image: AssetImage('assets/images/logo3.png')),
                 ),
@@ -41,7 +43,7 @@ class Login extends StatelessWidget {
                 Text(
                   'Welcome To CashBook  ',
                   style: GoogleFonts.signika(
-                    fontSize: 32,
+                    fontSize: mediaqueryWidth*0.081,
                     fontWeight: FontWeight.w700,
                     color: headingColor,
                   ),
@@ -51,7 +53,7 @@ class Login extends StatelessWidget {
                 Text(
                   ' Please Enter Your Name ',
                   style: GoogleFonts.signika(
-                    fontSize: 25,
+                    fontSize: mediaqueryWidth*0.050,
                     fontWeight: FontWeight.w700,
                     color: headingColor,
                   ),
@@ -83,8 +85,7 @@ class Login extends StatelessWidget {
                 hdivider1,
                 ElevatedButton(
                   onPressed: () async{
-                    // final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-                    // sharedPreferences.setString('name', 'nameController.text');
+                    
                     final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
                     sharedPreferences.setString('name', nameController.text.toString());
                     
@@ -98,8 +99,9 @@ class Login extends StatelessWidget {
                   child: Text(
                     'Get Started',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       color: Colors.white,
+                      fontWeight: FontWeight.w600
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
@@ -113,7 +115,7 @@ class Login extends StatelessWidget {
 
                 Text('On Clicking the button you are starting your financial recording with us, we hope you will have a good journey. ',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: mediaqueryWidth*0.0350,
                   color: textColor,
                 ),
                 textAlign: TextAlign.center,

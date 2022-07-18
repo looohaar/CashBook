@@ -26,6 +26,12 @@ class TransactionHistory extends StatefulWidget {
 }
 
 class _TransactionHistoryState extends State<TransactionHistory> {
+  var name;
+  @override
+  void initState(){
+    name= finalName;
+  }
+
   @override
   Widget build(BuildContext context) {
      double mediaqueryHeight= MediaQuery.of(context).size.height;
@@ -439,13 +445,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
 String greetingMessage(){
   var presentTime = DateTime.now().hour;
   if((presentTime<12)&& (presentTime>6)){
-    return 'Hi ${finalName}, Good Morning!';
+    return 'Hi ${name}, Good Morning!';
   }
   else if((presentTime>11 && (presentTime<16))){
-    return 'Good Afternoon ${finalName}';
+    return 'Good Afternoon ${name}';
   }
   else if((presentTime>15 && (presentTime<20))){
-    return 'Hi ${finalName}, Good Evening!';
+    return 'Hi ${name}, Good Evening!';
   }
   else{
     return 'Time for bed!';
