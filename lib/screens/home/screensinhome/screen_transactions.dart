@@ -29,7 +29,8 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   var name;
   @override
   void initState(){
-    name= finalName;
+    super.initState();
+    name=finalName;
   }
 
   @override
@@ -86,7 +87,9 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                               SizedBox(height: 40,
                               width: 1000,
                                 child: FittedBox(
-                                  child: Text(greetingMessage(),
+                                  child: Text(
+                                    
+                                    greetingMessage(),
                                   style: GoogleFonts.signika(
                                     fontSize: mediaqueryWidth*0.08,
                                     color: Colors.white,

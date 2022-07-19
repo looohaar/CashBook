@@ -34,6 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Future getValidationData() async{
           final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
           var userName= sharedPreferences.getString('name');
+          //  sharedPreferences.reload();
            finalName=userName;
         } 
   @override

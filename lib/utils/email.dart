@@ -2,19 +2,19 @@
 
 import 'package:url_launcher/url_launcher.dart';
 
-class EmailAndUrl{
-  static Future emailLauncher(String url) async{
-    if (await canLaunch(url)) {
-      await launch(url);
-      
-    }
+
+void emailLauncher() async{
+  final String url=
+  'mailto:looohaar@gmail.com?subject=${Uri.encodeFull('Feedback of CashBook')}&body=${Uri.encodeFull('')}';
+  await launch(url);
+}
+void aboutmeLauncher()async{
+ const url=
+  'www.linkedin.com/in/rahul-rajeev-500b1b200';
+  if(await canLaunch(url)){
+    await launch(url);
+  }else{
+   throw 'Could not launch $url';
   }
-  static openEmail({
-    required String toEmail,
-    required String subject,})async{
-      final url = 'mailto: $toEmail?subject=${Uri.encodeFull(subject)}';
-      await emailLauncher(url);
-    }
- static Future openLink({required String url})=> emailLauncher(url);
   
 }

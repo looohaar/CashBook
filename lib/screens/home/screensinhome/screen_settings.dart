@@ -25,6 +25,7 @@ class _SettingsState extends State<Settings> {
   var name;
   @override
   void initState(){
+    super.initState();
     name= finalName;
   }
   @override
@@ -67,7 +68,7 @@ elevation: 0,
                     color: headingColor,
                     size: mediaqueryWidth*0.085,
                   ),
-                  title: Text(name,
+                  title: Text(finalName,
                   style: GoogleFonts.signika(
                     fontSize: mediaqueryWidth*0.07,
               
@@ -137,10 +138,8 @@ elevation: 0,
               SizedBox(
                 height:  mediaqueryHeight*0.038,
                 child: GestureDetector(
-                  onTap: ()=> EmailAndUrl.openEmail(
-                    toEmail: 'looohaar@gmail.com',
-                    subject: 'Feedback about CashBook',
-                  ),
+                 
+                  onTap: ()=> emailLauncher(),
                  
                   child: ListTile(
                     leading: Icon(Icons.email,color: headingColor,size: mediaqueryWidth*0.08,),
@@ -183,7 +182,7 @@ elevation: 0,
            SizedBox(
             height:  mediaqueryHeight*0.038,
             child: GestureDetector(
-              onTap: ()=> EmailAndUrl.openLink(url: 'app upload chydit url kodknam'),
+              // onTap: ()=> 
               child: ListTile(
                 leading: Icon(Icons.privacy_tip_outlined,color: headingColor,size:mediaqueryWidth*0.084,),
                 title: Text('Privacy Policy',style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: Colors.black),
@@ -196,12 +195,12 @@ elevation: 0,
 
 
            ) ,
-            hdivider2,
+                hdivider2,
                 hdivider2,
                 SizedBox(
                   height:  mediaqueryHeight*0.038,
               child: GestureDetector(
-                onTap: ()=>EmailAndUrl.openLink(url: 'www.linkedin.com/in/rahul-rajeev-500b1b200'),
+                onTap: ()=> aboutmeLauncher(),
                 child: ListTile(
                   leading: Icon(Icons.info,color: headingColor,size:mediaqueryWidth*0.086,),
                   title: Text('About Me',style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.07,color: Colors.black),),
@@ -210,11 +209,11 @@ elevation: 0,
               ),
               
                 ),
-               SizedBox(height: 210),
+               SizedBox(height: mediaqueryHeight*0.26),
                 SizedBox(
                   height: mediaqueryHeight*0.038,
                   child: Center(
-                    child: Text('Version 1.0',
+                    child: Text('Version 1.0.0',
                     style: GoogleFonts.signika(fontSize: mediaqueryWidth*0.05,color: Colors.grey,),),
 
                   ),

@@ -8,8 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 SizedBox hdivider1= SizedBox(height: 10,);
 SizedBox hdivider2= SizedBox(height: 15,);
-SizedBox wdivider1= SizedBox(width: 10,);
-SizedBox wdivider2= SizedBox(width: 15,);
+// SizedBox wdivider1= SizedBox(width: 10,);
+// SizedBox wdivider2= SizedBox(width: 15,);
 // double mediaqueryHeight= MediaQuery.of(context).size.height;
 
 
@@ -110,3 +110,19 @@ SizedBox wdivider2= SizedBox(width: 15,);
 //                       ),
 //                     ),
 //                   );
+class Dividers extends StatefulWidget {
+  const Dividers({Key? key}) : super(key: key);
+
+  @override
+  State<Dividers> createState() => _DividersState();
+}
+
+class _DividersState extends State<Dividers> {
+  @override
+  Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryWidth= MediaQuery.of(context).size.width;
+    return Container();
+    
+  }
+}
