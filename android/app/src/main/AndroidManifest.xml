@@ -2,7 +2,7 @@
     package="com.example.cash_book">
     <uses-permission android:name="android.permission.Internet" />
    <application
-        android:label="cash_book"
+        android:label="CashBook"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -29,12 +29,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   }
 
-  // Future getVaildationData() async {
-  //   final SharedPreferences sharedPreferences =
-  //       await SharedPreferences.getInstance();
-  //   var obtainedName = sharedPreferences.getString('name');
-  //   checkingname = obtainedName;
-  // }
          
 
         Future getValidationData() async{
@@ -44,8 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
         } 
   @override
   Widget build(BuildContext context) {
+     double mediaqueryHeight= MediaQuery.of(context).size.height;
+     double mediaqueryWidth= MediaQuery.of(context).size.width;
 
-whenComplete(context);
+ whenComplete(context);
 
 
     return Scaffold(
@@ -53,10 +49,10 @@ whenComplete(context);
         decoration: BoxDecoration(color: Color.fromARGB(255, 101, 23, 127)),
         child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children:  [
           SizedBox(
-            width: double.infinity,
-            height: 200,
+            width: mediaqueryWidth*0.82,
+            height: mediaqueryHeight*0.25,
             child: Image(image: AssetImage('assets/images/logo3.png')),
           ),
           SizedBox(height: 10),
@@ -64,7 +60,7 @@ whenComplete(context);
             'CashBook',
             style: TextStyle(
                 fontFamily: 'Ubuntu-Bold',
-                fontSize: 55,
+                fontSize: mediaqueryWidth*0.145,
                 color: Colors.white,
                 fontWeight: FontWeight.bold),
           ),
@@ -72,14 +68,15 @@ whenComplete(context);
           Text(
             'Your Perfect Accounting Partner',
             style: TextStyle(
-                fontSize: 25,
+                fontSize: mediaqueryWidth*0.06,
                 fontWeight: FontWeight.w500,
                 color: Color.fromARGB(255, 199, 119, 223)),
+                textAlign: TextAlign.center,
           ),
-          SizedBox(height: 10),
+          SizedBox(height: mediaqueryHeight*0.03),
           SpinKitThreeBounce(
             color: Colors.white,
-            size: 40.0,
+            size: mediaqueryHeight*0.05,
           ),
         ],
       ),
