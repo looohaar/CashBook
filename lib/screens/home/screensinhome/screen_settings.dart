@@ -108,8 +108,9 @@ elevation: 0,
 
                               
                              ),)),
-                             TextButton(onPressed: (){
-                              Navigator.pop(context);
+                             TextButton(
+                             onPressed: (){
+                             Navigator.pop(context);
                              },
                               child: Text('No',
                               style: GoogleFonts.signika(

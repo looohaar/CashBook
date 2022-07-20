@@ -12,6 +12,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 late Box<Category> categoryVariable;
 late Box<Transactions> transactionsVariable;
+
+SizedBox hdivider1= SizedBox(height: 10,);
+SizedBox hdivider2= SizedBox(height: 15,);
 Future<void> main(List<String> args)async{
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     
     return MaterialApp(
       theme: ThemeData(

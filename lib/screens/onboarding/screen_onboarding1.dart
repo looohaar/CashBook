@@ -1,3 +1,4 @@
+import 'package:cash_book/main.dart';
 import 'package:cash_book/screens/onboarding/screen_onboarding2.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';
