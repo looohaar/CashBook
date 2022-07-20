@@ -41,7 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
      double mediaqueryHeight= MediaQuery.of(context).size.height;
      double mediaqueryWidth= MediaQuery.of(context).size.width;
-
+     
+    SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
+     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
  whenComplete(context);
 
 
@@ -56,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
             height: mediaqueryHeight*0.25,
             child: Image(image: AssetImage('assets/images/logo3.png')),
           ),
-          SizedBox(height: 10),
+         SizedBox(height: mediaqueryHeight*0.0155),
           Text(
             'CashBook',
             style: TextStyle(
@@ -65,7 +67,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
                 fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 10),
+          
+          SizedBox(height: mediaqueryHeight*0.0155),
           Text(
             'Your Perfect Accounting Partner',
             style: TextStyle(

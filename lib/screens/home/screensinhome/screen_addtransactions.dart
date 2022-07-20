@@ -43,6 +43,8 @@ class _AddTransactionsState extends State<AddTransactions> {
   Widget build(BuildContext context) {
       double mediaqueryHeight= MediaQuery.of(context).size.height;
     double mediaqueryWidth= MediaQuery.of(context).size.width;
+     SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
+     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

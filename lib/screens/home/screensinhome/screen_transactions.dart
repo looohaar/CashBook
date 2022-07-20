@@ -37,6 +37,8 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   Widget build(BuildContext context) {
      double mediaqueryHeight= MediaQuery.of(context).size.height;
     double mediaqueryWidth= MediaQuery.of(context).size.width;
+    SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
+     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
     return SafeArea(
         child: Scaffold(
            backgroundColor: Colors.white,
@@ -137,7 +139,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                               ),
                               hdivider1,
                               SizedBox(
-                                height: mediaqueryWidth*0.1,
+                                height: mediaqueryHeight*0.05,
                                 width: double.infinity,
                                 child: FittedBox(
                                   child: Text(
@@ -161,7 +163,9 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                   );
                 },
               ),
-              hdivider2,
+                hdivider1,
+            
+            
               Container(
                 child: Column(
                   children: [

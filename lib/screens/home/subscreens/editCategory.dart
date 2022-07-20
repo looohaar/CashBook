@@ -31,6 +31,8 @@ class _EditCategoryState extends State<EditCategory> {
   Widget build(BuildContext context) {
      double mediaqueryHeight= MediaQuery.of(context).size.height;
     double mediaqueryWidth= MediaQuery.of(context).size.width;
+    SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
+     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
     return AlertDialog(
       content: Column(
         

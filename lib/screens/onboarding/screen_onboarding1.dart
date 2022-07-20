@@ -14,6 +14,9 @@ class Onboarding1 extends StatelessWidget {
   Widget build(BuildContext context) {
      double mediaqueryHeight= MediaQuery.of(context).size.height;
      double mediaqueryWidth= MediaQuery.of(context).size.width;
+     
+    SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
+     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
     return Scaffold(
       body:SafeArea(
         

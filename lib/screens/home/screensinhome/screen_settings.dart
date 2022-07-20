@@ -32,6 +32,8 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     double mediaqueryHeight= MediaQuery.of(context).size.height;
     double mediaqueryWidth= MediaQuery.of(context).size.width;
+    SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
+     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
 
     
     return Scaffold(
@@ -75,8 +77,8 @@ elevation: 0,
                   ),),
                 ),
               ),
-              hdivider2,
-               hdivider2,
+              hdivider1,
+              hdivider1,
               SizedBox(
                 height:  mediaqueryHeight*0.038,
                 
@@ -134,8 +136,8 @@ elevation: 0,
                   ),
               
               ),
-              hdivider2,
-              hdivider2,
+             hdivider1,
+              hdivider1,
               SizedBox(
                 height:  mediaqueryHeight*0.038,
                 child: GestureDetector(
@@ -149,8 +151,8 @@ elevation: 0,
                   ),
                 ),
               ),
-              hdivider2,
-              hdivider2,
+              hdivider1,
+              hdivider1,
               SizedBox(
                 height:  mediaqueryHeight*0.038,
                 child: GestureDetector(
@@ -162,8 +164,8 @@ elevation: 0,
                   ),
                 ),
               ),
-              hdivider2,
-              hdivider2,
+              hdivider1,
+              hdivider1,
             SizedBox(
               height:  mediaqueryHeight*0.038,
               child: GestureDetector(
@@ -178,8 +180,8 @@ elevation: 0,
               ),
             ),
            ),
-           hdivider2,
-           hdivider2,
+         hdivider1,
+              hdivider1,
            SizedBox(
             height:  mediaqueryHeight*0.038,
             child: GestureDetector(
@@ -196,8 +198,8 @@ elevation: 0,
 
 
            ) ,
-                hdivider2,
-                hdivider2,
+              hdivider1,
+              hdivider1,
                 SizedBox(
                   height:  mediaqueryHeight*0.038,
               child: GestureDetector(
