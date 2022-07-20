@@ -303,7 +303,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
           ),
           labelPosition: ChartDataLabelPosition.outside,
           isVisible: true,
-          textStyle: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.05),
+          textStyle: GoogleFonts.signika(fontSize:  mediaqueryWidth*0.043),
 
         )
                      )
