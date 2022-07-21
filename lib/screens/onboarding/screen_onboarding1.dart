@@ -64,7 +64,7 @@ class Onboarding1 extends StatelessWidget {
                          hdivider2,
                          ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Onboarding2()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Onboarding2()));
                 },
                 child: Text('Next',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w600),),
                 style: ElevatedButton.styleFrom(
