@@ -199,6 +199,7 @@ SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
                              separatorBuilder:
                                   (BuildContext context, int index) {
                                 return  SizedBox(
+                                  // apply mediaquery
                                   height: 3,
                                   child: Container(
                                     color: headingColor,

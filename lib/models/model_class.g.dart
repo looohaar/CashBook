@@ -88,3 +88,37 @@ class TransactionsAdapter extends TypeAdapter<Transactions> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+class UsernameAdapter extends TypeAdapter<Username> {
+  @override
+  final int typeId = 2;
+
+  @override
+  Username read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Username(
+      fields[0] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Username obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.userName);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UsernameAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}

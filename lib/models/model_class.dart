@@ -27,3 +27,10 @@ class Transactions extends HiveObject{
 
   Transactions(this.amount,this.transactionType,this.date,this.categories,this.notes);
 }
+
+@HiveType(typeId:2)
+class Username extends HiveObject{
+  @HiveField(0)
+  final String userName;
+  Username(this.userName);
+}

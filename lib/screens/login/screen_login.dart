@@ -1,4 +1,5 @@
 import 'package:cash_book/main.dart';
+import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/screen_home.dart';
 import 'package:cash_book/utils/colors.dart';
 import 'package:cash_book/utils/reusable_widgets.dart';
@@ -88,15 +89,13 @@ class Login extends StatelessWidget {
                 ),
                 hdivider1,
                 ElevatedButton(
-                  onPressed: () async{
+                  onPressed: () {
                     
-                    final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
-                    sharedPreferences.setString('name', nameController.text.toString());
-                    
-                    nameController.text==null || nameController.text.isEmpty
-                    ? null
-                    :  Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+                   Username name= Username(nameController.text);
+                   usernameVariable.add(name);
 
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
+                    
                    
 
                   },

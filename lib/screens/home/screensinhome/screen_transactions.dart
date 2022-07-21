@@ -26,11 +26,11 @@ class TransactionHistory extends StatefulWidget {
 }
 
 class _TransactionHistoryState extends State<TransactionHistory> {
-  var name;
+  // var name;
   @override
   void initState(){
     super.initState();
-    name=finalName;
+    // name=finalName;
   }
 
   @override
@@ -39,12 +39,14 @@ class _TransactionHistoryState extends State<TransactionHistory> {
     double mediaqueryWidth= MediaQuery.of(context).size.width;
     SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
      SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
+    
     return SafeArea(
         child: Scaffold(
            backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
+        // apply mediaquery
         toolbarHeight: 300,
         shadowColor: Colors.transparent,
         flexibleSpace: Padding(
@@ -86,17 +88,32 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                           Column(
                             
                             children: [
+                              // apply mediaquery
                               SizedBox(height: 40,
                               width: 1000,
                                 child: FittedBox(
-                                  child: Text(
+                                child: ValueListenableBuilder(
+                                  valueListenable: usernameVariable.listenable(),
+                                  builder: (context, Box<Username> newBox, child) {
+                                    List<Username> userNameList= newBox.values.toList();
                                     
-                                    greetingMessage(),
-                                  style: GoogleFonts.signika(
-                                    fontSize: mediaqueryWidth*0.08,
-                                    color: Colors.white,
-                                  ),
-                                  textAlign: TextAlign.center,),
+                                    return Text(
+                                        userNameList[0].userName
+                                    );
+                                    
+                                  },
+                                 
+                                ),
+                            
+                                    // child: Text(
+                                      
+                                    //   greetingMessage(),
+                                    // style: GoogleFonts.signika(
+                                    //   fontSize: mediaqueryWidth*0.08,
+                                    //   color: Colors.white,
+                                    // ),
+                                    // textAlign: TextAlign.center,),
+                                 
                                 ),
                               ),
                               hdivider1,
@@ -449,21 +466,21 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   }
 
 
-String greetingMessage(){
-  var presentTime = DateTime.now().hour;
-  if((presentTime<12)&& (presentTime>6)){
-    return 'Hi ${name}, Good Morning!';
-  }
-  else if((presentTime>11 && (presentTime<16))){
-    return 'Good Afternoon ${name}';
-  }
-  else if((presentTime>15 && (presentTime<20))){
-    return 'Hi ${name}, Good Evening!';
-  }
-  else{
-    return 'Time for bed!';
-  }
-}
+// String greetingMessage(){
+//   var presentTime = DateTime.now().hour;
+//   if((presentTime<12)&& (presentTime>6)){
+//     return 'Hi ${finalName}, Good Morning!';
+//   }
+//   else if((presentTime>11 && (presentTime<16))){
+//     return 'Good Afternoon ${finalName}';
+//   }
+//   else if((presentTime>15 && (presentTime<20))){
+//     return 'Hi ${finalName}, Good Evening!';
+//   }
+//   else{
+//     return 'Time for bed!';
+//   }
+// }
 
 }
 

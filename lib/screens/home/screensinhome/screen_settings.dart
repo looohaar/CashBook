@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../models/model_class.dart';
 import '../../../utils/email.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,11 +24,15 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  var name;
+  // var name;
   @override
   void initState(){
+
     super.initState();
-    name= finalName;
+  //   // setState(() {
+  //   //   name= finalName;
+  //   // });
+    
   }
   @override
   Widget build(BuildContext context) {
@@ -70,13 +76,33 @@ elevation: 0,
                     color: headingColor,
                     size: mediaqueryWidth*0.085,
                   ),
-                  title: Text(finalName,
-                  style: GoogleFonts.signika(
-                    fontSize: mediaqueryWidth*0.07,
+                  title:
+
+                  ValueListenableBuilder(
+                                  valueListenable: usernameVariable.listenable(),
+                                  builder: (context, Box<Username> newBox, child) {
+                                    List<Username> userNameList= newBox.values.toList();
+                                    
+                                    return Text(
+                                        userNameList[0].userName,
+                                        style: GoogleFonts.signika(
+                                     fontSize: mediaqueryWidth*0.07,)
+                                    );
+                                    
+                                  },
+                                 
+                                ),
+                    // child: Text(name,
+                    // style: GoogleFonts.signika(
+                    //   fontSize: mediaqueryWidth*0.07,
+                                
+                    
+                    ),
+                  
+                  ),
+                
+               
               
-                  ),),
-                ),
-              ),
               hdivider1,
               hdivider1,
               SizedBox(

@@ -1,5 +1,8 @@
+import 'package:cash_book/main.dart';
+import 'package:cash_book/models/model_class.dart';
 import 'package:cash_book/screens/home/screen_home.dart';
 import 'package:cash_book/screens/onboarding/screen_onboarding1.dart';
+import 'package:cash_book/screens/onboarding/screen_onboarding2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -7,7 +10,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-var finalName;
+// var finalName;
+//  ValueNotifier<String?> finalName= ValueNotifier(null);
+  List<Username> userNameList= usernameVariable.values.toList();
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,31 +24,50 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getValidationData();
+  // @override
+  // void initState() {
+  //  if (finalName.value!=null) {
+      
+  //     finalName.value= sharedprefVarible.getString('name');
+     
+  //  }
+  //   super.initState();
+  //   // getValidationData();
+    
+     
 
-
-
-  }
+  // }
 
          
 
-        Future getValidationData() async{
-          final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
-          var userName= sharedPreferences.getString('name');
-          //  sharedPreferences.reload();
-           finalName=userName;
-        } 
+        // Future getValidationData() async{
+        //   final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+        //    var userName= sharedPreferences.getString('name');
+        //   //  sharedPreferences.reload();
+        //    return userName==null||userName.isEmpty
+        //    ? finalName.value= ''
+
+        //    :finalName.value=userName
+        //    ;
+        // } 
+
+        @override
+        void initState(){
+          if (userNameList.isEmpty|| userNameList.length==0) {
+            
+          }
+          
+           super.initState();
+        }
   @override
   Widget build(BuildContext context) {
+  
      double mediaqueryHeight= MediaQuery.of(context).size.height;
      double mediaqueryWidth= MediaQuery.of(context).size.width;
      
     SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
      SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
+    
  whenComplete(context);
 
 
@@ -101,7 +125,9 @@ class _SplashScreenState extends State<SplashScreen> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  finalName == null? Onboarding1() : Home())));
+                 userNameList.isEmpty? Onboarding1()
+                  :userNameList.length==0?Onboarding1() 
+                   :Home())));
 
 
                 

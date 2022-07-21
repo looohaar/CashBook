@@ -20,7 +20,8 @@ class Onboarding2 extends StatelessWidget {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            color: Color.fromRGBO(255, 255, 255, 1)
+             color: Color.fromRGBO(255, 255, 255, 1)
+            // color: Color.fromRGBO(255, 255, 255, 1)
            
           ),
           child: Padding(
