@@ -251,9 +251,11 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                 child: Text(
                                   'No Transactions Found',
                                   style: GoogleFonts.signika(
+                                    
                                       fontSize:mediaqueryWidth*0.071,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.grey),
+                                      textAlign: TextAlign.center,
                                 ),
                               ),
                             ],

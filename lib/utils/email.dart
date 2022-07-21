@@ -9,8 +9,10 @@ void emailLauncher() async{
   await launch(url);
 }
 void aboutmeLauncher()async{
+
+  
  const url=
-  'www.linkedin.com/in/rahul-rajeev-500b1b200';
+  'www.linkedin.com/in/rahul-rajeev-';
   if(await canLaunch(url)){
     await launch(url);
   }else{

@@ -183,7 +183,7 @@ elevation: 0,
               SizedBox(
                 height:  mediaqueryHeight*0.038,
                 child: GestureDetector(
-                  onTap: ()=>Share.share('Hi,please be kind to check out this moneymanager application. I assure you tht this appliction will help you in your Financial journey ..#url kodukanam upload chyd kazhinjit'),
+                  onTap: ()=>Share.share('Hey check out this moneymanager application developed with flutter. I assure you tht this appliction will help you in your Financial journey.'),
                   child: ListTile(
                     leading: Icon(Icons.share_sharp,color: headingColor,size: mediaqueryWidth*0.084,),
                     title: Text('Share App',
