@@ -45,8 +45,10 @@ class Onboarding1 extends StatelessWidget {
                 
                 fontWeight: FontWeight.w700,
                 color:headingColor,
+                
               
                          ),
+                         textAlign: TextAlign.center,
                          ),
                          hdivider2,
                          Text('CashBook makes it easy for you to keep an eye on your spending.It will provide you visual representations like charts,graphs etc to make yourself realise the way you spend.',

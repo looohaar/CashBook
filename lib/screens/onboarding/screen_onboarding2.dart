@@ -43,6 +43,7 @@ class Onboarding2 extends StatelessWidget {
                       fontSize: mediaqueryHeight*0.039,
                       fontWeight: FontWeight.w700,
                     ) ,
+                     textAlign: TextAlign.center,
                     ),
                     hdivider2,
                     Text('CashBook will be the backbone of your wealth generation game.This application will give you all the suggestions for accumulating wealth and spending money.',
