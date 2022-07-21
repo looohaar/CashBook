@@ -45,6 +45,7 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
        backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text('Settings',
         style: GoogleFonts.signika(

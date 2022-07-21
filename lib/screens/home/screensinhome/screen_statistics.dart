@@ -50,7 +50,7 @@ class _StatisticsState extends State<Statistics> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
-      
+      automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
             'Statistics',

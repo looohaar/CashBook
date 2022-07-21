@@ -40,6 +40,7 @@ SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
    return Scaffold(
        backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
           'Add Categories',

@@ -48,6 +48,7 @@ class _AddTransactionsState extends State<AddTransactions> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
           'Add Transaction',

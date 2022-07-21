@@ -30,15 +30,16 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   @override
   void initState(){
     super.initState();
-    // name=finalName;
+    // greetingMessage();
   }
 
   @override
   Widget build(BuildContext context) {
-     double mediaqueryHeight= MediaQuery.of(context).size.height;
+    double mediaqueryHeight= MediaQuery.of(context).size.height;
     double mediaqueryWidth= MediaQuery.of(context).size.width;
     SizedBox hdivider1= SizedBox(height: mediaqueryHeight*0.0155,);
-     SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
+    SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
+     var presentTime = DateTime.now().hour;
     
     return SafeArea(
         child: Scaffold(
@@ -98,7 +99,20 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                     List<Username> userNameList= newBox.values.toList();
                                     
                                     return Text(
-                                        userNameList[0].userName,
+
+                                    ((presentTime<12)&& (presentTime>6))
+                                    ? 'Hi ${userNameList[0].userName}, Good Morning!'
+                                    :((presentTime>11 && (presentTime<16)))
+                                    ?'Good Afternoon ${userNameList[0].userName}'
+                                    :((presentTime>15 && (presentTime<20)))
+                                    ?'Hi ${userNameList[0].userName}, Good Evening!'
+                                    :'Time for bed!',
+                                      
+                                   
+                     
+
+
+
                                         style: GoogleFonts.signika(
                                       fontSize: mediaqueryWidth*0.08,
                                       color: Colors.white,
@@ -231,7 +245,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               // apply mediaquery
-                              SizedBox(height:130,),
+                              SizedBox(height:mediaqueryHeight*0.15,),
                               Padding(
                                 padding: const EdgeInsets.all(48.0),
                                 child: Text(
@@ -473,15 +487,15 @@ class _TransactionHistoryState extends State<TransactionHistory> {
 
 
 // String greetingMessage(){
-//   var presentTime = DateTime.now().hour;
+ 
 //   if((presentTime<12)&& (presentTime>6)){
-//     return 'Hi ${finalName}, Good Morning!';
+//     return 'Hi ${userNameList[0].userName}, Good Morning!';
 //   }
 //   else if((presentTime>11 && (presentTime<16))){
-//     return 'Good Afternoon ${finalName}';
+//     return 'Good Afternoon ${userNameList[0].userName}';
 //   }
 //   else if((presentTime>15 && (presentTime<20))){
-//     return 'Hi ${finalName}, Good Evening!';
+//     return 'Hi ${userNameList[0].userName}, Good Evening!';
 //   }
 //   else{
 //     return 'Time for bed!';
