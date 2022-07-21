@@ -18,7 +18,7 @@ class AddCategory extends StatelessWidget {
 SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
     return AlertDialog(
       content: SizedBox(
-        height: 200,
+        height:  mediaqueryWidth*0.5,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

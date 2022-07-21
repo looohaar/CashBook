@@ -47,7 +47,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         // apply mediaquery
-        toolbarHeight: 300,
+        toolbarHeight: mediaqueryHeight*0.366,
         shadowColor: Colors.transparent,
         flexibleSpace: Padding(
           padding: const EdgeInsets.all(10),
@@ -89,8 +89,8 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                             
                             children: [
                               // apply mediaquery
-                              SizedBox(height: 40,
-                              width: 1000,
+                              SizedBox(height: mediaqueryHeight*0.059,
+                                width: double.infinity,
                                 child: FittedBox(
                                 child: ValueListenableBuilder(
                                   valueListenable: usernameVariable.listenable(),
@@ -98,7 +98,12 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                     List<Username> userNameList= newBox.values.toList();
                                     
                                     return Text(
-                                        userNameList[0].userName
+                                        userNameList[0].userName,
+                                        style: GoogleFonts.signika(
+                                      fontSize: mediaqueryWidth*0.08,
+                                      color: Colors.white,
+                                    ),
+                                    textAlign: TextAlign.center,
                                     );
                                     
                                   },
@@ -129,9 +134,9 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                     fontWeight: FontWeight.w600
                                   ),
                                 ),
-                                SizedBox(child:Text(',',style: GoogleFonts.signika(color: Color.fromARGB(255, 221, 91, 238),fontSize: 22,fontWeight: FontWeight.w500),),
+                                SizedBox(child:Text(',',style: GoogleFonts.signika(color: Color.fromARGB(255, 221, 91, 238),fontSize: mediaqueryWidth*0.065,fontWeight: FontWeight.w500),),
 
-                                  width: 8,
+                                  width: mediaqueryWidth*0.02
                                 ),
                                      Text(
                                       DateFormat('dd MMM').format(DateTime.now()),
@@ -225,6 +230,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              // apply mediaquery
                               SizedBox(height:130,),
                               Padding(
                                 padding: const EdgeInsets.all(48.0),
@@ -435,7 +441,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                         
                                       ],
                                     ),
-                                    SizedBox(height: 13,)
+                                    SizedBox(height:  mediaqueryWidth*0.031)
                                   ],
                                 ),
 

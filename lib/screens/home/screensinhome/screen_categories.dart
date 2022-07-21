@@ -134,8 +134,8 @@ SizedBox hdivider2= SizedBox(height: mediaqueryHeight*0.02325,);
                                         children: [
                                           SizedBox(
                                             // apply mediaquery if needed
-                                            width: 220,
-                                            height: 50,
+                                            width:  mediaqueryWidth*0.6,
+                                            height:  mediaqueryWidth*0.2,
 
                                             child: Text(
                                               tabController!.index == 0
