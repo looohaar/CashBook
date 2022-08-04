@@ -40,7 +40,8 @@ class Onboarding2 extends StatelessWidget {
                     Text('Build Your Wealth',
                     style:GoogleFonts.signika(
                       color: headingColor,
-                      fontSize: mediaqueryHeight*0.039,
+                      // fontSize: mediaqueryHeight*0.039,
+                        fontSize: 30,
                       fontWeight: FontWeight.w700,
                     ) ,
                      textAlign: TextAlign.center,

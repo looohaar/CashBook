@@ -377,7 +377,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                                               .date),
                                                       style:
                                                           GoogleFonts.signika(
-                                                              fontSize:mediaqueryWidth*0.05,
+                                                              fontSize:mediaqueryWidth*0.04,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,

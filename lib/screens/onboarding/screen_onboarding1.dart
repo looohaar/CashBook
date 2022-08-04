@@ -41,7 +41,8 @@ class Onboarding1 extends StatelessWidget {
                          hdivider2,
                          Text('Analyze Your Spending',
                          style: GoogleFonts.signika(
-                fontSize: mediaqueryHeight*0.039,
+                // fontSize: mediaqueryHeight*0.039,
+                 fontSize: 30,
                 
                 fontWeight: FontWeight.w700,
                 color:headingColor,
